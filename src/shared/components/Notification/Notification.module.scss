@@ -1,0 +1,48 @@
+.container {
+	position: fixed;
+	top: 150px;
+	right: 20px;
+	z-index: 700;
+	padding: 30px;
+	border-radius: 7px;
+	background: #15133b;
+	display: flex;
+	align-items: flex-start;
+	gap: 40px;
+	svg {
+		margin: 0 !important;
+		height: 20px !important;
+	}
+
+	.contentContainer {
+		display: flex;
+		gap: 16px;
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.title {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.11px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: #fff;
+	}
+
+	.text {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: #aeace4;
+		max-width: 210px;
+	}
+}

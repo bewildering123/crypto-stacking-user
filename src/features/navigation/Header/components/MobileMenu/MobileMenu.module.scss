@@ -1,0 +1,131 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: none;
+	@media (max-width: 1100px) {
+		display: flex;
+		width: 100%;
+		height: 100dvh;
+	}
+	flex-direction: column;
+	width: 100%;
+	position: absolute;
+	align-items: center;
+	padding: 16px 24px;
+	// &::-webkit-scrollbar {
+	// width: 0;
+	// }
+	height: calc(100dvh - 143px);
+	overflow-y: auto;
+	background: var(--header-background);
+	gap: 40px;
+
+	@include responsive.mobile {
+		height: calc(100dvh - 143px);
+	}
+
+	.user {
+		a {
+			display: none;
+		}
+
+		div {
+			div {
+				div {
+					height: auto;
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+			}
+		}
+	}
+
+	.containerLinks {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.linksContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		width: 100%;
+	}
+
+	.active {
+		color: var(--navigation-active-color) !important;
+		background: #746fe54d !important;
+		border-color: var(--navigation-active-color) !important;
+
+		svg {
+			path {
+				fill: var(--navigation-active-color) !important;
+			}
+		}
+	}
+
+	.svg {
+		svg {
+			scale: 1 !important;
+		}
+	}
+
+	.link {
+		cursor: pointer;
+
+		position: relative;
+		z-index: 5;
+
+		display: flex;
+		gap: 6px;
+		justify-content: center;
+		align-items: center;
+
+		width: 100%;
+		height: 40px;
+
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 18.77px;
+		color: #aeace4;
+		text-align: left;
+
+		background: var(--navigation-links-background);
+		border: 1px solid #4f4bad;
+		border-radius: 4px;
+
+		svg {
+			width: 30px;
+			scale: 0.8;
+			path {
+				fill: #aeace4;
+			}
+		}
+
+		&:hover {
+			color: var(--navigation-active-color);
+			background: #746fe54d;
+			scale: 1.03;
+			border-color: var(--navigation-active-color);
+
+			svg {
+				path {
+					fill: var(--navigation-active-color);
+				}
+			}
+		}
+	}
+
+	.line {
+		content: "123";
+
+		width: 100%;
+		height: 1px;
+
+		background: #7a76bc5d;
+		border: 10px;
+		border: 1px solid radial-gradient(50% 50% at 50% 50%, #7976bc 0%);
+	}
+}

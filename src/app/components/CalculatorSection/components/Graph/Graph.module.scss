@@ -1,0 +1,166 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	width: 100%;
+	position: relative;
+	height: 400px;
+
+	svg {
+		overflow: visible;
+		width: 100% !important;
+	}
+	@include responsive.mobile {
+		height: 200px;
+
+		svg {
+			margin-left: -15px;
+		}
+	}
+}
+
+.svg {
+	path {
+		fill: var(--header-dropdown-sign-in-color);
+	}
+}
+
+.text {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: absolute;
+	color: #fff;
+	font-family: var(--font-inter);
+	top: -5px;
+	left: 7%;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	text-align: center;
+	z-index: 2;
+}
+
+.monthText {
+	position: absolute;
+	z-index: 2;
+	right: 0;
+	bottom: 20px;
+	color: #fff;
+	font-family: var(--font-inter);
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 140%;
+	letter-spacing: 0%;
+}
+
+.yContainer {
+	display: flex;
+	align-items: center;
+}
+
+.toolTipContainer {
+	padding: 15px;
+	position: relative;
+	z-index: 1;
+	border-radius: 6px;
+	background: #4f4bad;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-family: var(--font-inter);
+	width: max-content !important;
+
+	.topText {
+		font-weight: 600;
+		font-size: 17px;
+		line-height: 100%;
+		letter-spacing: 0%;
+		color: #fff;
+	}
+
+	.data {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+
+		p {
+			font-weight: 400;
+			font-size: 17px;
+			line-height: 100%;
+			letter-spacing: 0%;
+			vertical-align: middle;
+			color: #aeace4;
+		}
+	}
+	@include responsive.mobile {
+		padding: 5px;
+		gap: 5px;
+
+		.topText {
+			font-size: 9px;
+		}
+
+		.data {
+			p {
+				font-size: 9px;
+			}
+		}
+	}
+}
+
+.infoContainer {
+	position: absolute;
+	z-index: 3;
+	width: auto;
+	border-radius: 0 6px 6px 0;
+	height: auto;
+	height: 69px;
+	margin-top: -30px;
+	background: #26254a;
+	margin-left: 240px;
+	border: 1px solid #39387a;
+	font-family: var(--font-inter);
+	border-left: none;
+	color: #aeace4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 11px;
+
+	&::after {
+		height: 52px;
+		width: 54px;
+		content: "";
+		position: absolute;
+		z-index: -1;
+		background: #26254a;
+		border: 1px solid #39387a;
+		border-right: none;
+		border-top: none;
+
+		left: -25px;
+
+		border-radius: 6px;
+		top: 8px;
+		transform: rotate(45deg);
+	}
+}
+
+.toolTipDot {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	background: #4f4bad;
+	border-radius: 6px;
+	transform: rotate(45deg) !important;
+	bottom: -10px;
+	left: calc(50% - 27px);
+
+	@include responsive.mobile {
+		width: 20px;
+		height: 20px;
+		bottom: -5px;
+		left: calc(50% - 15px);
+	}
+}

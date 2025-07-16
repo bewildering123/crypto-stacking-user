@@ -1,0 +1,97 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	min-height: 100vh;
+	padding: 50px;
+	padding-top: 135px;
+
+	@media (max-width: 1100px) {
+		padding-top: 185px;
+	}
+
+	.title {
+		font-family: var(--font-versus);
+		font-size: 40px;
+		font-weight: 900;
+		line-height: 52.8px;
+		color: var(--registration-country-pick-color);
+		text-align: left;
+		text-decoration-skip-ink: none;
+		text-underline-position: from-font;
+	}
+
+	.text {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.11px;
+		color: var(--withdraw-text-color);
+		text-align: left;
+		text-decoration-skip-ink: none;
+		text-underline-position: from-font;
+	}
+
+	.checkboxContainer {
+		display: flex;
+		gap: 14px;
+		align-items: center;
+
+		div {
+			width: 35px;
+			height: 35px;
+
+			// background: var(--header-dropdown-background);
+			border: 1px solid #746fe5 !important;
+			border-radius: 3px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.active {
+			background: var(--free-coin-background);
+		}
+	}
+
+	button {
+		width: 248px;
+	}
+
+	@include responsive.mobile {
+		min-height: 70vh;
+		padding: 14px;
+		gap: 32px;
+		padding-top: 200px;
+
+		.title {
+			font-size: 24px;
+			line-height: 31px;
+		}
+
+		.text {
+			font-size: 14px;
+			line-height: 16px;
+		}
+
+		.checkboxContainer {
+			gap: 0;
+
+			div {
+				width: 24px;
+				height: 24px;
+			}
+
+			svg {
+				scale: 0.7;
+				margin-left: -5px;
+			}
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}

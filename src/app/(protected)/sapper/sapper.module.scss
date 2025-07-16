@@ -1,0 +1,68 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	gap: 40px;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	width: 100%;
+
+	padding: 56px;
+	padding-right: 160px;
+	padding-top: 140px;
+	min-height: 100vh;
+
+	@media (max-width: 1100px) {
+		padding-top: 185px;
+	}
+
+	.title {
+		font-family: var(--font-versus);
+		font-size: 40px;
+		font-weight: 900;
+		line-height: 52.8px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: var(--registration-country-pick-color);
+
+		@include responsive.mobile {
+			line-height: 31px;
+			font-size: 24px;
+		}
+	}
+
+	.sha {
+		font-weight: 400;
+		font-size: 17px;
+		line-height: 19.94px;
+		margin-top: 16px;
+		letter-spacing: 0%;
+		color: var(--sapper-text-color);
+	}
+
+	.rightContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	@include responsive.mobile {
+		flex-direction: column;
+		gap: 22px;
+		align-items: flex-start;
+		justify-content: inherit;
+
+		width: 100%;
+		height: auto;
+		padding: 44px 15px;
+		padding-top: 200px;
+
+		.rightContainer {
+			gap: 22px;
+			align-items: flex-start;
+			width: 100%;
+		}
+	}
+}

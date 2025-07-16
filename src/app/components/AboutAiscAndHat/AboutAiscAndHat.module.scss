@@ -1,0 +1,155 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+
+	width: 100%;
+	padding: 160px 100px 160px 157px;
+
+	background: var(--faq-bg);
+
+	h2 {
+		font-family: var(--font-versus);
+		font-size: 60px;
+		font-weight: 900;
+		line-height: 79.2px;
+		color: var(--header-user-text-color);
+		text-align: center;
+		text-transform: uppercase;
+
+		span {
+			color: #746fe5;
+		}
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		align-items: center;
+	}
+
+	.text {
+		color: var(--profile-items-span-text-color);
+		font-family: var(--font-inter);
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 140%;
+		letter-spacing: 0%;
+		text-align: center;
+	}
+
+	.contentContainer {
+		width: 100%;
+		border-radius: 6px;
+		background: var(--input-background);
+		border: 1px solid var(--faq-question-border-color);
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.bottomContainer {
+		width: 100%;
+		display: flex;
+		gap: 32px;
+		justify-content: space-between;
+
+		img {
+			width: calc(100% / 2 - 10px);
+			height: min-content;
+		}
+	}
+
+	.questionsContainer {
+		display: flex;
+		flex-direction: column;
+		width: calc(100% / 2);
+		gap: 10px;
+	}
+
+	.buttonsContainer {
+		width: 100%;
+		border-radius: 6px;
+		padding: 30px;
+		border: 1px solid var(--faq-question-border-color);
+		display: flex;
+		gap: 32px;
+		background: var(--about-aisc-hat-background);
+
+		button {
+			width: 100%;
+			padding: 56px 0;
+			border-radius: 6px;
+			font-weight: 600;
+			font-size: 32px;
+			line-height: 100%;
+			letter-spacing: 0%;
+			text-align: center;
+
+			color: var(--profile-items-span-text-color);
+			span {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.activeButton {
+		background: var(--about-aisc-and-hat-background);
+		border: 1px solid var(--about-aisc-and-hat-border);
+	}
+
+	@include responsive.mobile {
+		padding: 40px 24px;
+		gap: 32px;
+
+		h2 {
+			font-size: 24px;
+			line-height: 100%;
+		}
+
+		.text {
+			font-size: 14px;
+			line-height: 100%;
+		}
+
+		.textContainer {
+			gap: 10px;
+		}
+
+		.contentContainer {
+			gap: 32px;
+			padding: 14px;
+		}
+
+		.buttonsContainer {
+			flex-direction: column;
+			padding: 14px;
+			gap: 6px;
+
+			button {
+				padding: 17px 0;
+				font-size: 12px;
+
+				span {
+					display: none;
+				}
+			}
+		}
+
+		.bottomContainer {
+			flex-direction: column;
+			img {
+				width: 100%;
+			}
+		}
+
+		.questionsContainer {
+			width: 100%;
+		}
+	}
+}

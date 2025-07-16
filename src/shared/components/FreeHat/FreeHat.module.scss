@@ -1,0 +1,71 @@
+@use "@/shared/styles/responsive.scss";
+
+.modalContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1001;
+	background: #08080880;
+	backdrop-filter: blur(5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 115vh;
+	width: 110vw;
+	padding: 24px;
+
+	@include responsive.mobile {
+		width: 100vw;
+	}
+
+	.container {
+		width: 100%;
+		max-width: 312px;
+		border-radius: 6px;
+		padding: 30px;
+		background: var(--feedback-before-background);
+		border: 1px solid var(--faq-question-border-color);
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		.winning {
+			width: 100%;
+			display: flex;
+			margin-top: 10px;
+			align-items: center;
+			justify-content: space-between;
+			p {
+				font-family: var(--font-versus);
+				font-weight: 900;
+				font-size: 15.21px;
+				line-height: 100%;
+				letter-spacing: 0%;
+				text-align: center;
+				text-transform: uppercase;
+				color: #fff;
+			}
+
+			.line {
+				width: 65px;
+				height: 1px;
+
+				background: rgb(255, 255, 255);
+				background: linear-gradient(
+					90deg,
+					rgba(255, 255, 255, 1) 0%,
+					rgba(116, 111, 229, 0.1) 100%
+				);
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}

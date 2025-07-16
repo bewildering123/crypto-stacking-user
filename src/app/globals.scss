@@ -1,0 +1,235 @@
+@import "../../node_modules/modern-normalize/modern-normalize.css";
+@import "@/shared/styles/colors";
+@import "@/shared/styles/responsive";
+
+html {
+	scroll-behavior: smooth;
+	font-size: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	@media only screen and (width > 768px) {
+		zoom: 0.9;
+	}
+
+	@media only screen and (width <= 768px) {
+		font-size: 100%;
+	}
+}
+
+body {
+	font-family: var(--font-montserrat);
+	color: var(--black);
+	background: var(--background);
+}
+
+.rc-anchor {
+	border: none !important;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@layer globals {
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	button {
+		cursor: pointer;
+
+		padding: 0;
+
+		font: inherit;
+		color: inherit;
+
+		background: none;
+		border: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		margin: 0;
+	}
+
+	h2 {
+		font-weight: 700;
+	}
+}
+
+.ant-select-dropdown {
+	background: var(--registration-country-pick-bg) !important;
+
+	&::-webkit-scrollbar {
+		width: 0 !important;
+	}
+}
+
+.ant-select-item-option-content {
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 19.94px;
+	color: var(--registration-country-pick-color);
+}
+
+.ant-select-item-option-selected {
+	background: var(--registration-country-pick-bg) !important;
+}
+
+.ant-select-arrow {
+	display: none !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0 !important;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	display: none !important;
+}
+
+:root {
+	--arrow-y: 40.390625px !important ;
+}
+
+.ant-tooltip-content {
+	margin-top: -2px !important;
+}
+
+.css-dev-only-do-not-override-1kf000u,
+.ant-tooltip,
+.ant-slider-tooltip {
+	z-index: 1 !important;
+	--arrow-y: 40.390625px !important ;
+}
+
+.ant-tooltip-placement-bottom {
+}
+
+.css-1ey656h-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+	color: #fff !important;
+}
+
+.css-wll7cy-MuiButtonBase-root-MuiMenuItem-root {
+	font-family: var(--font-work-sans) !important;
+}
+
+.css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+	// display: none !;
+	color: #ffffff00 !important;
+}
+
+.Mui-selected {
+	background: #181840 !important;
+	color: #746fe5 !important;
+}
+
+.css-1toxriw-MuiList-root-MuiMenu-list {
+	padding: 0 !important;
+}
+
+.css-19npoo4-MuiFormControl-root {
+	position: relative !important;
+}
+
+.css-13cymwt-control {
+	background-color: #746fe5 !important;
+	outline: none !important;
+	border: none !important;
+	border-radius: 6px !important;
+	box-shadow: none !important;
+	color: #fff !important;
+	font-weight: 600 !important;
+	font-size: 16px !important;
+	&:focus,
+	&:active {
+		outline: none !important;
+		border: none !important;
+		box-shadow: none !important;
+	}
+}
+
+.css-1dimb5e-singleValue {
+	color: #fff !important;
+	font-weight: 600 !important;
+	font-size: 16px !important;
+}
+
+.css-t3ipsp-control {
+	border-radius: 6px !important;
+	outline: none !important;
+	border: none !important;
+	background-color: #6e5eda !important;
+	box-shadow: none !important;
+
+	&:focus,
+	&:active {
+		outline: none !important;
+		border: none !important;
+		box-shadow: none !important;
+	}
+}
+
+.css-1u9des2-indicatorSeparator {
+	display: none;
+}
+
+.css-1nmdiq5-menu {
+	background-color: #6e5eda !important;
+	margin-top: 0 !important;
+	padding: 0 !important;
+	border-radius: 6px !important;
+}
+.css-d7l1ni-option {
+	color: #fff !important;
+}
+
+.css-10wo9uf-option {
+	color: #fff !important;
+}
+
+.custom__option--is-focused,
+.css-d7l1ni-option,
+.custom__option--is-selected {
+	color: #6e5eda !important;
+	background: #181840 !important;
+	cursor: pointer !important;
+}
+.css-tr4s17-option {
+	background: #6e5eda !important;
+	color: #fff !important;
+	cursor: pointer !important;
+	&:hover {
+		color: #6e5eda !important;
+		background: #181840 !important;
+	}
+}
+
+.css-qr46ko {
+	padding: 0 !important;
+}
+
+.ant-slider-rail {
+	background: #27256f !important;
+}

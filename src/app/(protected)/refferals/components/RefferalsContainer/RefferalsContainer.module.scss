@@ -1,0 +1,80 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	width: 383px;
+	height: 297px;
+	padding: 24px;
+	gap: 24px;
+	border-radius: 6px;
+	background: var(--header-dropdown-background);
+	border: 1px solid #aeace480;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	.textContainer {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		p {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 21.11px;
+			letter-spacing: -0.04em;
+			text-align: left;
+			text-underline-position: from-font;
+			text-decoration-skip-ink: none;
+			color: var(--modal-text-color);
+		}
+
+		.rightText {
+			color: var(--screen-balance-container-text-color);
+		}
+
+		.underScoreText {
+			color: var(--screen-balance-container-text-color);
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			text-decoration: underline;
+			cursor: pointer;
+
+			svg {
+				path {
+					fill: var(--screen-balance-container-text-color);
+				}
+			}
+		}
+
+		span {
+			color: #746fe5;
+		}
+	}
+
+	.iconsContainer {
+		padding: 0 16px;
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		svg {
+			path {
+				fill: var(--screen-balance-container-text-color);
+			}
+		}
+	}
+
+	@include responsive.mobile {
+		width: 100%;
+		padding: 16px;
+		height: auto;
+
+		.textContainer {
+			p {
+				font-size: 14px;
+				line-height: 16px;
+			}
+		}
+	}
+}

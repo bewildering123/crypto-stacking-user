@@ -1,0 +1,25 @@
+.backHome {
+	display: flex;
+	gap: 13px;
+	align-items: center;
+	justify-content: center;
+
+	width: 128px;
+	padding: 15.5px 30px;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 19.2px;
+	color: var(--backhome-text-color);
+	text-align: left;
+	letter-spacing: -0.04em;
+
+	border: 1.5px solid var(--backhome-text-color);
+	border-radius: 8px;
+
+	svg {
+		path {
+			fill: var(--backhome-text-color);
+		}
+	}
+}

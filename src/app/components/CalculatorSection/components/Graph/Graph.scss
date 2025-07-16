@@ -1,0 +1,35 @@
+.ant-slider-handle {
+	&::after {
+		box-shadow: 0 0 0 0px #4f4bad !important;
+		background: #4f4bad !important;
+		outline: none !important;
+	}
+
+	&:focus {
+		&::after {
+			box-shadow: 0 0 0 0px #4f4bad !important;
+		}
+	}
+}
+
+.ant-slider-dot {
+	background: #4f4bad !important;
+	border: none !important;
+}
+
+.ant-slider-mark-text {
+	font-family: var(--font-inter) !important;
+	font-weight: 500 !important;
+	font-size: 16px !important;
+	line-height: 120% !important;
+	letter-spacing: 0% !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	color: #aeace4 !important;
+	margin-top: 10px !important;
+}
+
+.ant-tooltip-arrow {
+	scale: 1.2;
+	bottom: 3px !important;
+}

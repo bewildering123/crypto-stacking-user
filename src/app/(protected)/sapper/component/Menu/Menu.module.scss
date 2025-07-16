@@ -1,0 +1,147 @@
+@use "@/shared/styles/responsive.scss";
+
+.winContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding-top: 95px;
+	width: 100%;
+	max-width: 500px;
+	min-width: 330px;
+
+	@include responsive.mobile {
+		width: 100%;
+		padding: 0;
+	}
+
+	.sha {
+		font-weight: 400;
+		font-size: 17px;
+		line-height: 19.94px;
+		margin-top: 16px;
+		letter-spacing: 0%;
+		color: var(--sapper-text-color);
+		max-width: 100%;
+		word-break: break-all;
+	}
+
+	.cont {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+
+		width: 100%;
+		padding: 24px;
+
+		background: var(--input-background);
+		outline: 1px solid var(--faq-question-border-color);
+		border-radius: 6px;
+
+		@include responsive.mobile {
+			width: 100%;
+			padding: 0;
+			background: none;
+			outline: none;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+
+	.leaderboard {
+		div {
+			width: 100% !important;
+			margin-top: 0 !important;
+		}
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+		div {
+			width: 100%;
+		}
+
+		label {
+			color: var(--sapper-color-input-container) !important;
+		}
+
+		input {
+			color: var(--sapper-color-input-container) !important;
+		}
+
+		.titleText {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			align-items: center;
+
+			margin-top: -2px;
+
+			font-size: 18px;
+			font-weight: 400;
+			color: var(--sapper-color-text-container);
+			text-align: left;
+			text-decoration-skip-ink: none;
+			text-underline-position: from-font;
+
+			svg {
+				path {
+					fill: var(--sapper-foot-background);
+				}
+			}
+
+			@include responsive.mobile {
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		.text {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+
+			font-family: var(--font-versus);
+			font-size: 18px;
+			width: max-content;
+			font-weight: 900;
+			color: var(--sapper-color-text-money-container);
+			text-align: left;
+			text-decoration-skip-ink: none;
+			text-underline-position: from-font;
+
+			@include responsive.mobile {
+				font-size: 16px;
+
+				svg {
+					display: none;
+				}
+			}
+
+			input {
+				width: 50px;
+
+				text-align: right;
+
+				background: none;
+				border: none;
+				outline: none;
+
+				&:disabled {
+					color: #fff;
+				}
+			}
+
+			svg {
+				margin-top: -3px;
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	width: 100%;
+	padding: 70px 45px;
+	background: var(--input-background);
+	border: 1px solid var(--faq-question-border-color);
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	border-radius: 6px;
+
+	.topContainer {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		gap: 50px;
+		height: 400px;
+	}
+
+	@include responsive.mobile {
+		padding: 30px 24px;
+		gap: 32px;
+
+		.topContainer {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+		}
+	}
+}

@@ -1,0 +1,115 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	width: 120vw;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	height: 120vh;
+	background: #05041b80;
+	backdrop-filter: blur(10px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.modal {
+		width: 668px;
+		border: 1px solid #aeace480;
+		background: var(--header-dropdown-background);
+		border-radius: 10px;
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		.text {
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 21.11px;
+			text-align: left;
+			text-underline-position: from-font;
+			text-decoration-skip-ink: none;
+			color: var(--modal-text-color);
+
+			span {
+				color: var(--screen-balance-container-text-color);
+			}
+		}
+
+		.inputContainer {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			div {
+				width: 100%;
+			}
+
+			.buttons {
+				display: flex;
+				width: 100%;
+				justify-content: space-between;
+				align-items: center;
+
+				button {
+					width: 261px;
+				}
+
+				.resetCodeButton {
+					padding-left: 15px;
+					border: none;
+					outline: none;
+					width: auto;
+					background: none;
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 18.77px;
+					text-align: center;
+					text-underline-position: from-font;
+					text-decoration-skip-ink: none;
+					color: var(--modal-text-color);
+
+					&:disabled {
+						color: #746fe580;
+					}
+				}
+			}
+		}
+	}
+
+	@include responsive.mobile {
+		padding: 20px;
+
+		.modal {
+			width: 100%;
+			padding: 16px;
+
+			.text {
+				font-size: 14px;
+				line-height: 16px;
+			}
+
+			.inputContainer {
+				gap: 32px;
+			}
+
+			.buttons {
+				width: 100%;
+				display: flex;
+				flex-direction: column-reverse;
+				gap: 32px;
+
+				button {
+					width: 100% !important;
+				}
+
+				.resetCodeButton {
+					height: 47px;
+					background: var(--profile-items-background-color) !important;
+					border-radius: 6px;
+					border: 1px solid var(--modal-text-color) !important;
+				}
+			}
+		}
+	}
+}

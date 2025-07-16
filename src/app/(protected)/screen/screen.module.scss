@@ -1,0 +1,51 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	gap: 40px;
+
+	width: 100%;
+	min-height: 100vh;
+	flex-wrap: wrap;
+	padding: 50px;
+	padding-top: 140px;
+
+	@media (max-width: 1100px) {
+		padding-top: 185px;
+	}
+
+	.contentContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		@include responsive.mobile {
+			gap: 32px;
+		}
+	}
+
+	.title {
+		font-family: var(--font-versus);
+		font-size: 40px;
+		font-weight: 900;
+		line-height: 52.8px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: var(--registration-country-pick-color);
+
+		@include responsive.mobile {
+			line-height: 31px;
+			font-size: 24px;
+		}
+	}
+
+	@media (max-width: 1100px) {
+		flex-direction: column;
+		gap: 16px;
+
+		height: auto;
+		padding: 44px 15px;
+		padding-top: 200px;
+	}
+}

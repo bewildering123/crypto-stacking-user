@@ -1,0 +1,38 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+
+	.title {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.11px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: var(--withdraw-text-color);
+	}
+
+	div {
+		width: 604px;
+	}
+
+	button {
+		width: 604px;
+	}
+
+	@include responsive.mobile {
+		font-size: 14px;
+		line-height: 16px;
+
+		div {
+			width: 100%;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}

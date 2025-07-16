@@ -1,0 +1,159 @@
+@use "@/shared/styles/responsive.scss";
+
+.game {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	background: var(--setting-sections-background);
+	border: 1px solid var(--faq-question-border-color);
+	padding: 30px;
+	border-radius: 6px;
+	@include responsive.mobile {
+		width: 100%;
+		padding: 16px;
+		background: var(--input-background);
+	}
+
+	.mobile {
+		display: none;
+		@include responsive.mobile {
+			display: block;
+		}
+	}
+
+	.desktop {
+		display: block;
+		@include responsive.mobile {
+			display: none;
+		}
+	}
+
+	.board {
+		display: grid;
+		flex-wrap: wrap;
+		width: 100%;
+		grid-template-columns: repeat(5, 1fr);
+
+		gap: 20px;
+		border-radius: 6px;
+		@include responsive.mobile {
+			width: 100%;
+			gap: 10px;
+			padding: 8px;
+		}
+	}
+
+	.bombsAndFootContainer {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		div {
+			padding: 15px;
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			color: var(--header-text-color);
+			border: 1px solid var(--faq-question-border-color);
+			border-radius: 6px;
+			background: var(--input-background);
+			border-radius: 6px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 100%;
+			letter-spacing: 0%;
+		}
+
+		@include responsive.mobile {
+			gap: 10px;
+			div {
+				height: 49px;
+				background: none;
+				padding: 10px;
+				font-size: 14px;
+				line-height: 100%;
+			}
+		}
+	}
+
+	.boardContainer {
+		background: var(--input-background);
+		border-radius: 6px;
+		display: flex;
+		align-items: flex-start;
+		gap: 20px;
+		padding: 30px;
+		border: 1px solid var(--faq-question-border-color);
+
+		@include responsive.mobile {
+			padding: 0;
+			background: none;
+			border: none;
+			gap: 8px;
+		}
+	}
+
+	.hatContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		height: 760px;
+
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+
+			height: 89px;
+
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 18.77px;
+			color: var(--sapper-multiply-color);
+			text-align: right;
+			text-decoration-skip-ink: none;
+			text-underline-position: from-font;
+			letter-spacing: -0.08em;
+		}
+		@include responsive.mobile {
+			height: auto;
+			gap: 10px;
+			margin-top: 10px;
+			div {
+				font-size: 11px;
+				height: 45px;
+			}
+		}
+	}
+
+	button {
+		width: calc(289px / 5.02);
+		height: calc(577px / 10);
+		background: var(--setting-sections-background);
+		border-radius: 6px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+
+		border: 1px solid var(--faq-question-border-color);
+
+		@include responsive.mobile {
+			width: calc(100vw / 5 - 40px);
+			height: calc(451px / 10);
+		}
+
+		&:hover {
+			background: var(--sapper-board-color-hover);
+		}
+	}
+
+	.foot {
+		svg {
+			path {
+				fill: var(--sapper-foot-background);
+			}
+		}
+	}
+}

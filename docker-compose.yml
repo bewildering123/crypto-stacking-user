@@ -1,0 +1,10 @@
+version: '3'
+services:
+  crypto-stacking-user:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '${USER_EXTERNAL_PORT}:3000'

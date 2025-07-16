@@ -1,0 +1,127 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+
+	width: 100%;
+	padding: 160px 100px 160px 157px;
+
+	background: var(--faq-bg);
+
+	h2 {
+		font-family: var(--font-versus);
+		font-size: 60px;
+		font-weight: 900;
+		line-height: 79.2px;
+		color: var(--header-user-text-color);
+		text-align: left;
+
+		span {
+			color: #746fe5;
+		}
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		align-items: center;
+	}
+
+	.text {
+		color: var(--profile-items-span-text-color);
+		font-family: var(--font-inter);
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 140%;
+		letter-spacing: 0%;
+		text-align: center;
+	}
+
+	.faqContainer {
+		display: flex;
+		gap: 21px;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.questionsContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		width: calc((100% - 42px - 363px) / 2);
+	}
+
+	.imageContainer {
+		position: relative;
+		padding-top: 123px;
+
+		&::after {
+			content: "";
+
+			position: absolute;
+			z-index: -1;
+			bottom: 0;
+
+			width: 252px;
+			height: 371px;
+
+			background: #1380f1;
+			filter: blur(400px);
+		}
+	}
+
+	.paddingTop {
+		padding-top: 110px;
+	}
+
+	@include responsive.mobile {
+		align-items: center;
+		padding: 87px 18px;
+		padding-top: 43px;
+
+		h2 {
+			font-size: 24px;
+			line-height: 31px;
+		}
+
+		.imageContainer {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			padding: 0;
+
+			&::after {
+				display: none;
+			}
+
+			img {
+				width: 228px;
+				height: 213px;
+			}
+		}
+
+		.questionsContainer {
+			width: 100%;
+		}
+
+		.paddingTop {
+			padding: 0;
+		}
+
+		.faqContainer {
+			flex-direction: column;
+			gap: 41px;
+			width: 100%;
+		}
+		.textContainer {
+			gap: 10px;
+		}
+		.text {
+			font-size: 14px;
+		}
+	}
+}

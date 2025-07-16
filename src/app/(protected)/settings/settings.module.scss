@@ -1,0 +1,40 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+
+	width: 100%;
+	gap: 16px;
+	min-height: 100vh;
+	padding: 58px 65px;
+	padding-top: 140px;
+
+	padding-right: 0;
+
+	@media (max-width: 1100px) {
+		padding-top: 185px;
+	}
+
+	.input {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		width: calc(100% / 2);
+		margin-right: 6%;
+	}
+
+	@media (max-width: 1100px) {
+		flex-direction: column;
+		gap: 40px;
+		align-items: center;
+
+		padding: 44px 15px;
+		padding-top: 200px;
+
+		.input {
+			margin: 0;
+			width: 100%;
+			min-width: none;
+		}
+	}
+}

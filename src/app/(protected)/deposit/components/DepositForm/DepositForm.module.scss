@@ -1,0 +1,107 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	gap: 24px;
+
+	.text {
+		font-family: var(--font-versus);
+		font-size: 26px;
+		font-weight: 900;
+		line-height: 34.32px;
+		text-align: left;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		color: var(--header-user-text-color);
+	}
+
+	.graph {
+		width: max-content;
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		padding: 24px;
+		padding-right: 64px;
+		max-width: 595px;
+		border: 1px solid var(--faq-question-border-color);
+		background: var(--setting-sections-background);
+		border-radius: 6px;
+	}
+
+	.buttonContainer {
+		flex-direction: row;
+	}
+
+	.totalRate {
+		gap: 49px;
+		width: max-content;
+	}
+
+	.topContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.inputContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		background: var(--setting-sections-background);
+		border: 1px solid var(--faq-question-border-color);
+		border-radius: 6px;
+		padding: 24px;
+
+		.text {
+			font-family: var(--font-work-sans);
+			color: var(--header-text-color);
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 100%;
+			letter-spacing: 0%;
+		}
+		div {
+			width: 100%;
+		}
+		button {
+			width: 452px;
+		}
+	}
+
+	@include responsive.mobile {
+		.text {
+			font-size: 18px;
+			line-height: 23px;
+		}
+
+		padding: 30px 0;
+		flex-direction: column;
+
+		.graph {
+			padding: 30px 24px;
+			width: 100%;
+		}
+
+		.inputContainer {
+			flex-direction: column;
+			padding: 16px;
+
+			.text {
+				font-size: 16px;
+			}
+
+			div {
+				width: 100%;
+
+				label {
+					font-size: 14px;
+				}
+			}
+
+			button {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,172 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	width: 100%;
+	padding: 70px 160px;
+	padding-top: 170px;
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+	align-items: center;
+	overflow: hidden;
+	min-height: 100vh;
+
+	.titleContainer {
+		width: 100%;
+		position: absolute;
+		left: 0;
+
+		@media (max-width: 970px) {
+			position: relative;
+
+			a {
+				width: 100%;
+			}
+		}
+	}
+
+	.titleCont {
+		width: 100%;
+		max-width: 929px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+
+		@media (max-width: 970px) {
+			flex-direction: column;
+			gap: 32px;
+		}
+	}
+
+	h1 {
+		font-family: var(--font-versus);
+		font-weight: 900;
+		font-size: 70px;
+		line-height: 100%;
+		letter-spacing: 0%;
+		text-align: center;
+		text-transform: uppercase;
+		color: var(--profile-items-span-text-color);
+		@include responsive.mobile {
+			font-size: 24px;
+		}
+	}
+
+	@include responsive.mobile {
+		padding: 70px 20px;
+		padding-top: 160px;
+	}
+
+	.blobOne {
+		position: absolute;
+		top: -67px;
+		left: 0;
+
+		width: 252px;
+		height: 371px;
+
+		background: #1380f1;
+		filter: blur(500px);
+	}
+
+	.blobTwo {
+		position: absolute;
+		top: 533px;
+		left: -80px;
+
+		width: 189px;
+		height: 278px;
+
+		background: #697bfe;
+		filter: blur(350px);
+	}
+
+	.content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		max-width: 929px;
+
+		text-align: left;
+
+		color: var(--profile-items-span-text-color);
+		font-family: var(--font-inter);
+
+		.unparsed {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		h2 {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 140%;
+			letter-spacing: 0%;
+		}
+
+		li,
+		p {
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 140%;
+			letter-spacing: 0%;
+		}
+
+		br {
+			margin: 10px 0;
+		}
+		@include responsive.mobile {
+			h2 {
+				font-size: 14px;
+			}
+			li,
+			p {
+				font-size: 14px;
+			}
+			.unparsed {
+				gap: 10px;
+			}
+		}
+	}
+
+	.linesContainer {
+		position: absolute;
+		z-index: -1;
+
+		display: var(--lines-display);
+		justify-content: space-between;
+
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		margin-top: -50vh;
+
+		color: var(--profile-items-span-text-color);
+
+		.right {
+			position: absolute;
+			right: 0;
+		}
+
+		.left {
+			position: absolute;
+			left: 0;
+		}
+	}
+
+	@include responsive.mobile {
+		.blobOne {
+			display: none;
+		}
+
+		.blobTwo {
+			display: none;
+		}
+
+		.linesContainer {
+			display: none;
+		}
+	}
+}

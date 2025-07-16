@@ -1,0 +1,84 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	align-items: center;
+
+	width: 748px;
+
+	.inputsContainer {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		width: 100%;
+
+		div {
+			width: 333px;
+		}
+
+		label {
+			color: var(--profile-total-replenished-color);
+		}
+
+		svg {
+			transition: 0.5s;
+			cursor: pointer;
+			path {
+				fill: var(--profile-total-replenished-color);
+			}
+
+			&:hover {
+				scale: 1.1;
+			}
+		}
+	}
+
+	svg {
+		margin-bottom: 16px;
+	}
+
+	button {
+		width: 450px;
+		height: 52px;
+
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 18.77px;
+		color: #fff;
+		text-align: center;
+		text-decoration-skip-ink: none;
+		text-underline-position: from-font;
+
+		background: #746fe5;
+		border-radius: 6px;
+
+		&:disabled {
+			background: #746fe580;
+			color: #ffffff80;
+		}
+	}
+
+	@include responsive.mobile {
+		width: 100%;
+
+		.inputsContainer {
+			flex-direction: column;
+			gap: 20px;
+			align-items: center;
+
+			div {
+				width: 100%;
+			}
+		}
+
+		svg {
+			margin: 0;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}

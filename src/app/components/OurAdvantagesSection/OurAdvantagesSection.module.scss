@@ -1,0 +1,164 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+
+	width: 100%;
+	padding: 160px 100px 160px 157px;
+
+	background: var(--faq-bg);
+
+	h2 {
+		font-family: var(--font-versus);
+		font-size: 60px;
+		font-weight: 900;
+		line-height: 79.2px;
+		color: var(--header-user-text-color);
+		text-align: center;
+		text-transform: uppercase;
+
+		span {
+			color: #746fe5;
+		}
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		align-items: center;
+	}
+
+	.text {
+		color: var(--profile-items-span-text-color);
+		font-family: var(--font-inter);
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 140%;
+		letter-spacing: 0%;
+		text-align: center;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 252px;
+		height: 52px;
+
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 19.2px;
+		color: var(--main-section-buy-button-text);
+		text-align: center;
+		transition: 0.8s;
+
+		background: var(--main-section-buy-button-bg);
+		border-radius: 4px;
+		box-shadow: 17px 7px 12.9px 0px #918cfb inset;
+		box-shadow: 0px 4px 4px 0px #00000040;
+		box-shadow: var(--main-section-buy-button-shadow);
+		outline: 2px solid var(--main-section-buy-button-bg);
+
+		&:hover {
+			background: var(--main-section-buy-button-text);
+			color: var(--main-section-buy-button-bg);
+		}
+	}
+
+	.blocksContainer {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 32px;
+		row-gap: 40px;
+		width: 100%;
+	}
+	.block {
+		width: calc(100% / 3 - 64px);
+		background: var(--input-background);
+		border-radius: 6px;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		border: 1px solid #6a68e0;
+		font-family: var(--font-inter);
+	}
+
+	.textCont {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		color: var(--header-dropdown-sign-in-color);
+		font-size: 17px;
+		line-height: 140%;
+		letter-spacing: 0%;
+		text-align: left;
+		font-weight: 400;
+		span {
+			font-weight: 600;
+		}
+	}
+	.mobileContainer {
+		display: none;
+		flex-direction: column;
+		gap: 15px;
+		width: 100%;
+
+		div {
+			width: 100%;
+		}
+	}
+
+	.carouselContainer {
+		display: none;
+	}
+
+	@include responsive.mobile {
+		align-items: center;
+		padding: 87px 18px;
+		padding-top: 43px;
+
+		.blocksContainer {
+			display: none;
+		}
+
+		.carouselContainer {
+			display: flex;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+		}
+		.slide {
+			div {
+				width: 100%;
+			}
+			flex: 0 0 100%;
+			min-width: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		h2 {
+			font-size: 24px;
+			line-height: 31px;
+		}
+
+		.textContainer {
+			gap: 10px;
+		}
+		.text {
+			font-size: 14px;
+		}
+
+		a {
+			width: 100%;
+		}
+	}
+}

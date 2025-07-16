@@ -1,0 +1,90 @@
+@use "@/shared/styles/responsive.scss";
+
+.winners {
+	width: 330px;
+	height: 448px;
+	padding: 24px;
+
+	margin-top: 93px;
+	display: flex;
+	flex-direction: column;
+	gap: 19px;
+
+	background: var(--input-background);
+	border: 1px solid var(--faq-question-border-color);
+	border-radius: 7px;
+
+	.usersContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.user {
+		display: flex;
+		height: 35px;
+		align-items: center;
+		width: 100%;
+		justify-content: space-between;
+
+		.placeContainer {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			width: max-content !important;
+
+			svg {
+				width: 35px;
+				height: 35px;
+			}
+		}
+
+		.nick {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 18.77px;
+			letter-spacing: -0.08em;
+			text-align: left;
+			text-underline-position: from-font;
+			text-decoration-skip-ink: none;
+			color: #746fe5;
+		}
+
+		.money {
+			width: auto !important;
+			font-size: 16px;
+			font-weight: 400;
+			width: max-content;
+			line-height: 18.77px;
+			letter-spacing: -0.08em;
+			text-align: left;
+			text-underline-position: from-font;
+			text-decoration-skip-ink: none;
+			color: var(--profile-items-span-text-color);
+		}
+	}
+
+	@include responsive.mobile {
+		width: 100%;
+	}
+}
+
+.winnersTitle {
+	font-family: var(--font-versus);
+	font-size: 30px;
+	color: var(--header-dropdown-sign-in-color);
+	font-weight: 900;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	line-height: 39.6px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+	svg {
+		path {
+			fill: var(--header-dropdown-sign-in-color);
+		}
+	}
+}

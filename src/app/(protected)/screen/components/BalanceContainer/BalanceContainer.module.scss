@@ -1,0 +1,159 @@
+@use "@/shared/styles/responsive.scss";
+
+.balanceContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding-top: 92px;
+
+	@include responsive.mobile {
+		padding-top: 0;
+	}
+}
+
+.titleContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	svg {
+		path {
+			fill: var(--screen-container-text-color);
+		}
+	}
+
+	p {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 23.46px;
+		color: var(--screen-container-text-color);
+		text-align: left;
+		text-decoration-skip-ink: none;
+		text-underline-position: from-font;
+		letter-spacing: -0.04em;
+	}
+
+	span {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.11px;
+		color: var(--screen-balance-container-text-color);
+		text-align: left;
+		text-decoration-skip-ink: none;
+		text-underline-position: from-font;
+		letter-spacing: -0.04em;
+	}
+}
+
+.forTodayContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	width: 383px;
+	padding: 24px;
+
+	background: var(--screen-game-container-color);
+	border: 1px solid var(--screen-balance-container-border);
+	border-radius: 1px;
+
+	@media (max-width: 1100px) {
+		width: 100%;
+		padding: 16px;
+	}
+
+	.infoContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			p {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 21.11px;
+				color: var(--screen-container-text-color);
+				text-align: left;
+				text-decoration-skip-ink: none;
+				text-underline-position: from-font;
+				letter-spacing: -0.04em;
+			}
+
+			span {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 21.11px;
+				color: var(--screen-balance-container-text-color);
+				text-align: left;
+				text-decoration-skip-ink: none;
+				text-underline-position: from-font;
+				letter-spacing: -0.04em;
+			}
+		}
+	}
+}
+
+.bonusContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	width: 383px;
+	padding: 24px;
+
+	@media (max-width: 1100px) {
+		width: 100%;
+		padding: 16px;
+	}
+
+	background: var(--screen-game-container-color);
+	border: 1px solid var(--screen-balance-container-border);
+	border-radius: 1px;
+
+	.darkContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		padding: 16px;
+
+		background: var(--screen-container-background-color);
+		border-radius: 6px;
+
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			p {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 21.11px;
+				color: var(--screen-container-text-color);
+				text-align: left;
+				text-decoration-skip-ink: none;
+				text-underline-position: from-font;
+				letter-spacing: -0.04em;
+			}
+
+			span {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 21.11px;
+				color: var(--screen-balance-container-text-color);
+				text-align: left;
+				text-decoration-skip-ink: none;
+				text-underline-position: from-font;
+				letter-spacing: -0.04em;
+			}
+		}
+	}
+}

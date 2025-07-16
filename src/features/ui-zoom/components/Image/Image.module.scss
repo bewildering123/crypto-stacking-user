@@ -1,0 +1,6 @@
+@layer responsiveImage {
+	.responsiveImage {
+		width: calc(var(--image-responsive-width) / 16 * 1rem);
+		height: calc(var(--image-responsive-height) / 16 * 1rem);
+	}
+}

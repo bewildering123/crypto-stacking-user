@@ -1,0 +1,70 @@
+@use "@/shared/styles/responsive.scss";
+
+.container {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	width: 100%;
+	@media (max-width: 1050px) {
+		width: 100%;
+	}
+	padding: 32px;
+
+	background: var(--profile-items-background-color);
+	border: 1px solid #8280ba;
+	border-radius: 10px;
+
+	.title {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 28.15px;
+		color: var(--registration-country-pick-color);
+		text-align: left;
+	}
+
+	.infoContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.calculator {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 40px;
+	}
+
+	.totalRate {
+		width: max-content;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		font-size: 16px;
+	}
+
+	.graph {
+		width: 90%;
+		height: auto;
+	}
+
+	.inputsContainer {
+		display: flex;
+		gap: 20px;
+	}
+
+	@include responsive.mobile {
+		width: 100%;
+		height: auto;
+		padding: 40px 15px;
+
+		.title {
+			font-size: 20px;
+			line-height: 23px;
+		}
+	}
+}
