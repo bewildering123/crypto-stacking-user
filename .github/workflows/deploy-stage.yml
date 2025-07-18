@@ -49,9 +49,9 @@ jobs:
 
             sudo bash -c "echo 'USER_EXTERNAL_PORT=${{ secrets.USER_EXTERNAL_PORT }}' >> $PROJECT_PATH/.env"
             sudo bash -c "echo 'NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXT_PUBLIC_BACKEND_URL=${{ variables.NEXT_PUBLIC_BACKEND_URL }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXT_PUBLIC_BASE_URL=${{ variables.NEXT_PUBLIC_BASE_URL }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXTAUTH_URL=${{ variables.NEXTAUTH_URL }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXT_PUBLIC_BACKEND_URL=${{ env.NEXT_PUBLIC_BACKEND_URL }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXT_PUBLIC_BASE_URL=${{ env.NEXT_PUBLIC_BASE_URL }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXTAUTH_URL=${{env.NEXTAUTH_URL }}' >> $PROJECT_PATH/.env"
 
             COMPOSE_FILE="docker-compose.yml"
 
