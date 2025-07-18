@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add SSH key
+        run: |
+          eval $(ssh-agent -s)
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            PROJECT_PATH="${{ secrets.PROJECT_PATH }}"
+
+            cd $PROJECT_PATH
+            echo "Pulling the latest changes from the repository..."
+            sudo git config --global --add safe.directory $PROJECT_PATH
+            sudo git pull origin ${{ github.ref }}
+
+            if [ -f "$PROJECT_PATH/.env" ]; then
+              echo ".env file exists. Removing the old file..."
+              sudo rm $PROJECT_PATH/.env
+            fi
+            sudo touch $PROJECT_PATH/.env
+
+            echo "Creating or updating .env file with sudo..."
+            sudo bash -c "echo 'NODE_ENV=production' > $PROJECT_PATH/.env"
+
+
+            sudo bash -c "echo 'USER_EXTERNAL_PORT=${{ secrets.USER_EXTERNAL_PORT }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXT_PUBLIC_BACKEND_URL=${{ variables.NEXT_PUBLIC_BACKEND_URL }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXT_PUBLIC_BASE_URL=${{ variables.NEXT_PUBLIC_BASE_URL }}' >> $PROJECT_PATH/.env"
+            sudo bash -c "echo 'NEXTAUTH_URL=${{ variables.NEXTAUTH_URL }}' >> $PROJECT_PATH/.env"
+
+            COMPOSE_FILE="docker-compose.yml"
+
+            echo "Checking for Docker Compose file at $PROJECT_PATH/$COMPOSE_FILE..."
+            if [ ! -f "$PROJECT_PATH/$COMPOSE_FILE" ]; then
+              echo "Error: $PROJECT_PATH/$COMPOSE_FILE not found"
+              exit 1
+            fi
+
+            sudo docker compose -f $PROJECT_PATH/$COMPOSE_FILE stop crypto-stacking-user
+            sudo docker compose -f $PROJECT_PATH/$COMPOSE_FILE up -d --build crypto-stacking-user
