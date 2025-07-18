@@ -26,7 +26,7 @@ const nextConfig = {
 			},
 			{
 				protocol: "https",
-				hostname: "api.aisc.online",
+				hostname: "api.aisc.global",
 				pathname: "**",
 			},
 		],
