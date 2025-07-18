@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=builder /app/public ./public
 COPY --from=builder  /app/.next/standalone ./
 COPY --from=builder  /app/.next/static ./.next/static
-COPY --from=builder  /app/next.config.js ./next.config.js
+COPY --from=builder  /app/next.config.mjs ./next.config.mjs
 COPY --from=builder  /app/postcss ./postcss
 
 CMD ["node", "./server.js"]

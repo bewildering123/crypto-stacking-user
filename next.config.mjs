@@ -3,7 +3,7 @@ const backendUrl = new URL(process.env.NEXT_PUBLIC_BACKEND_URL);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-
+	output: "standalone",
 	experimental: {
 		optimizePackageImports: ["@ark-ui/react"],
 	},

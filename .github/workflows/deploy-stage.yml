@@ -28,30 +28,31 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             PROJECT_PATH="${{ secrets.PROJECT_PATH }}"
 
             cd $PROJECT_PATH
             echo "Pulling the latest changes from the repository..."
-            sudo git config --global --add safe.directory $PROJECT_PATH
-            sudo git pull origin ${{ github.ref }}
+            git config --global --add safe.directory $PROJECT_PATH
+            git pull
 
             if [ -f "$PROJECT_PATH/.env" ]; then
               echo ".env file exists. Removing the old file..."
-              sudo rm $PROJECT_PATH/.env
+              rm $PROJECT_PATH/.env
             fi
-            sudo touch $PROJECT_PATH/.env
+            touch $PROJECT_PATH/.env
 
             echo "Creating or updating .env file with sudo..."
-            sudo bash -c "echo 'NODE_ENV=production' > $PROJECT_PATH/.env"
+            bash -c "echo 'NODE_ENV=production' > $PROJECT_PATH/.env"
 
 
-            sudo bash -c "echo 'USER_EXTERNAL_PORT=${{ secrets.USER_EXTERNAL_PORT }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXT_PUBLIC_BACKEND_URL=${{ env.NEXT_PUBLIC_BACKEND_URL }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXT_PUBLIC_BASE_URL=${{ env.NEXT_PUBLIC_BASE_URL }}' >> $PROJECT_PATH/.env"
-            sudo bash -c "echo 'NEXTAUTH_URL=${{env.NEXTAUTH_URL }}' >> $PROJECT_PATH/.env"
+            bash -c "echo 'USER_EXTERNAL_PORT=${{ secrets.USER_EXTERNAL_PORT }}' >> $PROJECT_PATH/.env"
+            bash -c "echo 'NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}' >> $PROJECT_PATH/.env"
+            bash -c "echo 'NEXT_PUBLIC_BACKEND_URL=${{ env.NEXT_PUBLIC_BACKEND_URL }}' >> $PROJECT_PATH/.env"
+            bash -c "echo 'NEXT_PUBLIC_BASE_URL=${{ env.NEXT_PUBLIC_BASE_URL }}' >> $PROJECT_PATH/.env"
+            bash -c "echo 'NEXTAUTH_URL=${{env.NEXTAUTH_URL }}' >> $PROJECT_PATH/.env"
 
             COMPOSE_FILE="docker-compose.yml"
 
@@ -61,5 +62,5 @@ jobs:
               exit 1
             fi
 
-            sudo docker compose -f $PROJECT_PATH/$COMPOSE_FILE stop crypto-stacking-user
-            sudo docker compose -f $PROJECT_PATH/$COMPOSE_FILE up -d --build crypto-stacking-user
+            docker compose -f $PROJECT_PATH/$COMPOSE_FILE stop crypto-stacking-user
+            docker compose -f $PROJECT_PATH/$COMPOSE_FILE up -d --build crypto-stacking-user
