@@ -16,20 +16,23 @@ export const login = async (variables: {
 	// 	variables: variables,
 	// });
 
-	const data = await fetch("http://localhost:3001/api/graphql", {
-		referrer: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/graphql-playground`,
-		referrerPolicy: "strict-origin-when-cross-origin",
-		body: `{\"operationName\":\"login\",\"variables\":{},\"query\":\"query login {\\n  login(email: \\\"${variables.email}\\\", password: \\\"${variables.password}\\\") {\\n    id\\n name \\n email \\n country \\n login \\n two_factor_authentification \\n}\\n}\\n\"}`,
-		method: "POST",
-		mode: "cors",
-		credentials: "include",
-		headers: {
-			accept: "*/*",
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
+	const data = await fetch(
+		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/graphql`,
+		{
+			referrer: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/graphql-playground`,
+			referrerPolicy: "strict-origin-when-cross-origin",
+			body: `{\"operationName\":\"login\",\"variables\":{},\"query\":\"query login {\\n  login(email: \\\"${variables.email}\\\", password: \\\"${variables.password}\\\") {\\n    id\\n name \\n email \\n country \\n login \\n two_factor_authentification \\n}\\n}\\n\"}`,
+			method: "POST",
+			mode: "cors",
+			credentials: "include",
+			headers: {
+				accept: "*/*",
+				"content-type": "application/json",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+			},
 		},
-	});
+	);
 
 	const res = await data.json();
 
