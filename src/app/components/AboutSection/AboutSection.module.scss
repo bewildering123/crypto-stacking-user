@@ -52,6 +52,7 @@
 	font-weight: 700;
 	font-style: normal;
 	line-height: 22px;
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
 		font-size: 14px;
