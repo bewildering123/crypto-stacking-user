@@ -1,58 +1,64 @@
-import { Root } from "@radix-ui/react-accordion";
-import clsx from "clsx";
+import { Tabs, TabsProps } from "antd";
 import Image from "next/image";
-import { useState } from "react";
 
-import Question from "./components/Question/Question";
-import { aiscData, hatData } from "./data";
-import AiscImage from "./icons/AiscImage.png";
-import HatImage from "./icons/HatImage.png";
+import AiscCollapse from "./components/AiscCollapse";
+import HatCollapse from "./components/HatCollapse";
 
 import styles from "./AboutAiscAndHat.module.scss";
 
-const AboutAiscAndHat = () => {
-	const [active, setActive] = useState(true);
+const items: TabsProps["items"] = [
+	{
+		key: "1",
+		label: "AISC",
+		children: <AiscCollapse />,
+	},
+	{
+		key: "2",
+		label: "HAT",
+		children: <HatCollapse />,
+	},
+];
 
+const AboutAiscAndHat = () => {
 	return (
 		<section className={styles.container}>
-			<div className={styles.textContainer}>
-				<h2>
-					<span>AISC & HAT</span> – The Power <br /> of Smart Mining
-				</h2>
-				<p className={styles.text}>
-					Discover a unique ecosystem where AI and blockchain work together to
-					create stability, growth, and opportunity
-				</p>
+			<div className={styles.leftBlock}>
+				<Image
+					src="/img/pages/home/faq/wallet.png"
+					className={styles.mainImg}
+					width={554}
+					height={554}
+					alt="wallet"
+				/>
+				<div className={styles.description}>
+					AISC uses AI to ensure stable growth and transparent profit
+					distribution, while HAT tokens — earned through in-platform activity —
+					increase your mining rate without additional investment. The more HAT
+					you collect, the higher your daily earnings, making the system both
+					fair and rewarding
+				</div>
 			</div>
-			<div className={styles.contentContainer}>
-				<div className={styles.buttonsContainer}>
-					<button
-						className={clsx(active && styles.activeButton)}
-						onClick={() => setActive(true)}
-					>
-						AISC <br /> <span>Your Passive Income Revolution</span>
-					</button>
-					<button
-						className={clsx(!active && styles.activeButton)}
-						onClick={() => setActive(false)}
-					>
-						HAT <br /> <span>Play, Earn, Boost!</span>
-					</button>
+			<div className={styles.rightBlock}>
+				<div className={styles.subtitle}>
+					<Image
+						src="/img/icons/stars.svg"
+						className={styles.subtitleImg}
+						width={24}
+						height={24}
+						alt="wallet"
+					/>
+					<div>Start Earning</div>
 				</div>
-				<div className={styles.bottomContainer}>
-					<Root type="single" className={styles.questionsContainer}>
-						{(active ? aiscData : hatData).map((el, i) => (
-							<Question
-								key={i}
-								answer={el.text}
-								icon={el.icon}
-								question={el.title}
-								value={el.text}
-							/>
-						))}
-					</Root>
-					<Image src={active ? AiscImage : HatImage} alt="image" />
-				</div>
+				<h2 className={styles.title}>
+					AISC & HAT — Smarter Mining, Greater Rewards
+				</h2>
+				<Tabs
+					defaultActiveKey="1"
+					centered
+					items={items}
+					className={styles.tabs}
+				/>
+				;
 			</div>
 		</section>
 	);

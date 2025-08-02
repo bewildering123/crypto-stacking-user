@@ -1,8 +1,8 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 import { RegisterForm } from "@/app/(registration)/register/RegisterPage";
-import Eye from "@/features/navigation/Header/components/User/icons/eye.svg";
 
 import styles from "./InputWithLabel.module.scss";
 
@@ -48,7 +48,14 @@ const InputWithLabel = ({
 				type={type === "password" && view ? "text" : type || "text"}
 			/>
 			{type === "password" && (
-				<Eye className={styles.eye} onClick={() => setView(!view)} />
+				<Image
+					src="/img/icons/eye.svg"
+					width={24}
+					height={24}
+					className={styles.eye}
+					onClick={() => setView(!view)}
+					alt="eye"
+				/>
 			)}
 		</div>
 	);

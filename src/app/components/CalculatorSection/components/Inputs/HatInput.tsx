@@ -25,23 +25,15 @@ const HatInput = () => {
 	}, [value]);
 
 	return (
-		<div className={styles.hatContainer}>
-			<p className={styles.text}>HAT</p>
+		<div className={styles.itemContainer}>
+			<div className={styles.title}>HAT</div>
 
 			<Slider
-				disabled={isDraggingTooltip}
 				tooltip={{
 					open: true,
-					placement: "top",
-					color: "#4F4BAD",
-					overlay: (
-						<Tooltip
-							labelText="HAT"
-							value={value}
-							setIsDraggingTooltip={setIsDraggingTooltip}
-							setValue={setValue}
-						/>
-					),
+					placement: "bottom",
+					color: "linear-gradient(90deg, #1cc1ad 0%, #f3ae2e 100%)",
+					overlay: <Tooltip value={value} />,
 				}}
 				min={0}
 				max={70000}
@@ -49,16 +41,15 @@ const HatInput = () => {
 				onChange={handleChange}
 				defaultValue={11213}
 				className={styles.slider}
-				handleStyle={{
-					borderColor: "#4F4BAD",
-					backgroundColor: "#4F4BAD",
-					borderRadius: "50%",
-				}}
 				marks={{
 					0: "0",
-					70000: "70000",
+					70000: {
+						style: {
+							transform: "translateX(-90%)",
+						},
+						label: 70000,
+					},
 				}}
-				trackStyle={{ backgroundColor: "#27256F" }}
 				onAfterChange={() => setHatValue(value)}
 			/>
 		</div>

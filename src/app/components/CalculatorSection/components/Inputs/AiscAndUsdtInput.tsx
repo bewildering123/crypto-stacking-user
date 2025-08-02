@@ -1,7 +1,7 @@
-import { Slider } from "antd";
+import { Select, Slider } from "antd";
+import Image from "next/image";
 import React, { useState } from "react";
 
-import SelectValues from "@/app/(protected)/profile/components/UserGraph/SelectValues/SelectValues";
 import { useCalculator } from "@/integrations/zustand/calculator/calculator";
 
 import Tooltip from "./Tooltip";
@@ -14,6 +14,7 @@ const AiscAndUsdtInput = () => {
 	const [isDraggingTooltip, setIsDraggingTooltip] = useState<boolean>(false);
 
 	const [value, setValue] = useState(2500);
+	const [open, setOpen] = useState(false);
 
 	const handleChange = (newValue: number) => {
 		if (!isDraggingTooltip) {
@@ -22,47 +23,51 @@ const AiscAndUsdtInput = () => {
 	};
 
 	return (
-		<div className={styles.hatAndAiscContainer}>
-			{/* <p className={styles.text}>
-				<span
-					onClick={() => setSelectedValue("aisc")}
-					className={clsx(selectedValue === "aisc" && styles.active)}
-				>
-					AISC
-				</span>{" "}
-				/{" "}
-				<span
-					onClick={() => setSelectedValue("usdt")}
-					className={clsx(selectedValue === "usdt" && styles.active)}
-				>
-					USDT
-				</span>
-			</p> */}
-			<div style={{ width: "120px" }}>
-				<SelectValues
-					setValue={setSelectedValue}
-					value={selectedValue}
-					values={["AISC", "USDT"]}
-				/>
-			</div>
+		<div className={styles.itemContainer}>
+			<Select
+				className={styles.select}
+				value={selectedValue}
+				onChange={setSelectedValue}
+				open={open}
+				dropdownClassName={styles.selectDropdown}
+				onDropdownVisibleChange={(visible) => setOpen(visible)}
+				suffixIcon={
+					<Image
+						src="/img/icons/chevron-left.svg"
+						width={20}
+						height={20}
+						alt="usdt"
+						style={{
+							transition: "transform 0.3s",
+							transform: open ? "rotate(90deg)" : "rotate(-90deg)",
+						}}
+					/>
+				}
+				options={[
+					{
+						value: "USDT",
+						label: (
+							<div className={styles.usdt}>
+								<Image
+									src="/img/icons/usdt.svg"
+									width={20}
+									height={20}
+									alt="usdt"
+								/>
+								USDT
+							</div>
+						),
+					},
+					{ value: "AISC", label: "AISC" },
+				]}
+			/>
 
 			<Slider
-				disabled={isDraggingTooltip}
 				tooltip={{
 					open: true,
-					placement: "top",
-					color: "#4F4BAD",
-					overlay: (
-						<Tooltip
-							labelText={selectedValue.toUpperCase()}
-							value={value}
-							setIsDraggingTooltip={setIsDraggingTooltip}
-							setValue={(val) => {
-								setSecondValue(val);
-								setValue(val);
-							}}
-						/>
-					),
+					placement: "bottom",
+					color: "linear-gradient(90deg, #1cc1ad 0%, #f3ae2e 100%)",
+					overlay: <Tooltip value={value} />,
 				}}
 				min={0}
 				max={selectedValue.toLowerCase() === "usdt" ? 5000 : 10000}
@@ -70,20 +75,27 @@ const AiscAndUsdtInput = () => {
 				onChange={handleChange}
 				defaultValue={3400}
 				className={styles.slider}
-				handleStyle={{
-					borderColor: "#4F4BAD",
-					backgroundColor: "#4F4BAD",
-					borderRadius: "50%",
-				}}
 				marks={
 					selectedValue.toLowerCase() === "usdt"
 						? {
 								0: "0",
-								5000: "5000",
+								5000: {
+									style: {
+										transform: "translateX(-90%)",
+									},
+									label: 5000,
+								},
 							}
-						: { 0: "0", 10000: "10000" }
+						: {
+								0: "0",
+								10000: {
+									style: {
+										transform: "translateX(-90%)",
+									},
+									label: 10000,
+								},
+							}
 				}
-				trackStyle={{ backgroundColor: "#27256F" }}
 				onAfterChange={() => setSecondValue(value)}
 			/>
 		</div>

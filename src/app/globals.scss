@@ -2,11 +2,13 @@
 @import "@/shared/styles/colors";
 @import "@/shared/styles/responsive";
 
+/* New styles */
+@import "@/shared/styles/vars";
+
 html {
 	scroll-behavior: smooth;
+	overflow: hidden auto;
 	font-size: 100%;
-	overflow-x: hidden;
-	overflow-y: auto;
 
 	@media only screen and (width > 768px) {
 		zoom: 0.9;
@@ -18,9 +20,10 @@ html {
 }
 
 body {
-	font-family: var(--font-montserrat);
-	color: var(--black);
-	background: var(--background);
+	font-family: var(--font-inter);
+	font-size: var(--font-size);
+	color: var(--primary);
+	background: var(--main-bg);
 }
 
 .rc-anchor {
@@ -96,12 +99,12 @@ ol {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none !important;
 	margin: 0 !important;
+	appearance: none !important;
 }
 
 input[type="number"] {
-	-moz-appearance: textfield !important;
+	appearance: textfield !important;
 }
 
 .swiper-button-next,
@@ -120,8 +123,9 @@ input[type="number"] {
 .css-dev-only-do-not-override-1kf000u,
 .ant-tooltip,
 .ant-slider-tooltip {
-	z-index: 1 !important;
 	--arrow-y: 40.390625px !important ;
+
+	z-index: 1 !important;
 }
 
 .ant-tooltip-placement-bottom {
@@ -137,12 +141,12 @@ input[type="number"] {
 
 .css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
 	// display: none !;
-	color: #ffffff00 !important;
+	color: #fff0 !important;
 }
 
 .Mui-selected {
-	background: #181840 !important;
 	color: #746fe5 !important;
+	background: #181840 !important;
 }
 
 .css-1toxriw-MuiList-root-MuiMenu-list {
@@ -154,39 +158,41 @@ input[type="number"] {
 }
 
 .css-13cymwt-control {
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	color: #fff !important;
+
 	background-color: #746fe5 !important;
-	outline: none !important;
 	border: none !important;
 	border-radius: 6px !important;
+	outline: none !important;
 	box-shadow: none !important;
-	color: #fff !important;
-	font-weight: 600 !important;
-	font-size: 16px !important;
+
 	&:focus,
 	&:active {
-		outline: none !important;
 		border: none !important;
+		outline: none !important;
 		box-shadow: none !important;
 	}
 }
 
 .css-1dimb5e-singleValue {
-	color: #fff !important;
-	font-weight: 600 !important;
 	font-size: 16px !important;
+	font-weight: 600 !important;
+	color: #fff !important;
 }
 
 .css-t3ipsp-control {
+	background-color: #6e5eda !important;
+	border: none !important;
 	border-radius: 6px !important;
 	outline: none !important;
-	border: none !important;
-	background-color: #6e5eda !important;
 	box-shadow: none !important;
 
 	&:focus,
 	&:active {
-		outline: none !important;
 		border: none !important;
+		outline: none !important;
 		box-shadow: none !important;
 	}
 }
@@ -196,11 +202,12 @@ input[type="number"] {
 }
 
 .css-1nmdiq5-menu {
-	background-color: #6e5eda !important;
 	margin-top: 0 !important;
 	padding: 0 !important;
+	background-color: #6e5eda !important;
 	border-radius: 6px !important;
 }
+
 .css-d7l1ni-option {
 	color: #fff !important;
 }
@@ -212,14 +219,16 @@ input[type="number"] {
 .custom__option--is-focused,
 .css-d7l1ni-option,
 .custom__option--is-selected {
+	cursor: pointer !important;
 	color: #6e5eda !important;
 	background: #181840 !important;
-	cursor: pointer !important;
 }
+
 .css-tr4s17-option {
-	background: #6e5eda !important;
-	color: #fff !important;
 	cursor: pointer !important;
+	color: #fff !important;
+	background: #6e5eda !important;
+
 	&:hover {
 		color: #6e5eda !important;
 		background: #181840 !important;
@@ -232,4 +241,22 @@ input[type="number"] {
 
 .ant-slider-rail {
 	background: #27256f !important;
+}
+
+/* New Styles */
+.container {
+	overflow: hidden;
+
+	width: 100%;
+	max-width: 1340px;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	background: var(--container-bg);
+	background-position: 20px top;
+	background-size: var(--bg-gap) 100%;
+}
+
+.text-green {
+	color: var(--green);
 }

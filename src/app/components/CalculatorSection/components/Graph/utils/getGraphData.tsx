@@ -17,7 +17,7 @@ export function getGraphData(
 		const balance =
 			secondValue * (1 + totalRate) ** (i * MONTH_DATA.get(button_value));
 		return {
-			month: i,
+			month: `${i + 1} ${button_value.toLowerCase()}`,
 			balance:
 				balance.toString().length > 6
 					? Number(balance.toString().slice(0, 6))

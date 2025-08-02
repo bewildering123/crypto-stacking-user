@@ -2,66 +2,27 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 86px;
 
-	label {
-		cursor: pointer;
+	height: 100%;
+	padding: 5px;
 
-		position: relative;
+	background: var(--light-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+}
 
-		display: block;
+.switchItem {
+	cursor: pointer;
 
-		width: 32px;
-		height: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-		text-indent: -9999px;
+	padding: 5px;
 
-		border-radius: 100px;
-		outline: 1px solid #555;
-	}
+	border-radius: 8px;
 
-	svg {
-		width: 12px;
-		height: 12px;
-	}
-
-	label::after {
-		content: "";
-
-		position: absolute;
-		top: 2px;
-		left: 2px;
-
-		width: 12px;
-		height: 12px;
-
-		background: var(--cursor-background);
-		border-radius: 90px;
-
-		transition: 0.4s;
-	}
-
-	input:checked + label::after {
-		left: calc(100% - 2px);
-		transform: translateX(-100%);
-	}
-
-	label:active::after {
-		width: 5px;
-	}
-
-	input[type="checkbox"] {
-		width: 0;
-		height: 0;
-		visibility: hidden;
-	}
-
-	.nightSvg {
-		padding-top: 2px;
-		svg {
-			path {
-				fill: var(--moon-svg-color);
-			}
-		}
+	&:global(.active) {
+		background: var(--light-orange-bg);
 	}
 }

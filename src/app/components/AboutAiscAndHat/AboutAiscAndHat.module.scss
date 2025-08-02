@@ -1,155 +1,245 @@
-@use "@/shared/styles/responsive.scss";
+@use "@/shared/styles/responsive";
 
 .container {
+	display: grid;
+	grid-gap: 96px;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+
+	padding: 100px 0;
+
+	@include responsive.mobile {
+		grid-gap: 8px;
+		grid-template-columns: 100%;
+		padding: 20px 0;
+	}
+}
+
+.leftBlock {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 70px;
+	gap: 32px;
 
+	@include responsive.mobile {
+		gap: 16px;
+	}
+}
+
+.rightBlock {
+	@include responsive.mobile {
+		order: -1;
+	}
+}
+
+.mainImg {
 	width: 100%;
-	padding: 160px 100px 160px 157px;
+}
 
-	background: var(--faq-bg);
+.description {
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 24px;
 
-	h2 {
-		font-family: var(--font-versus);
-		font-size: 60px;
-		font-weight: 900;
-		line-height: 79.2px;
-		color: var(--header-user-text-color);
-		text-align: center;
-		text-transform: uppercase;
-
-		span {
-			color: #746fe5;
-		}
+	@include responsive.mobile {
+		font-size: 13px;
+		line-height: 16px;
 	}
+}
 
-	.textContainer {
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-		align-items: center;
+.subtitle {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+
+	width: max-content;
+	margin-bottom: 24px;
+	padding: 18px;
+
+	font-family: var(--font-space_grotesk);
+	font-size: 20px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 22px;
+	color: var(--bold-primary);
+
+	background: var(--light-orange-bg);
+	border-radius: 16px;
+
+	@include responsive.mobile {
+		gap: 8px;
+		margin-bottom: 12px;
+		padding: 8px;
 	}
+}
 
-	.text {
-		color: var(--profile-items-span-text-color);
-		font-family: var(--font-inter);
-		font-weight: 400;
+.subtitleImg {
+	width: 24px;
+	height: 24px;
+
+	@include responsive.mobile {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.title {
+	margin-bottom: 40px;
+
+	font-family: var(--font-space_grotesk);
+	font-size: 52px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 52px;
+	color: var(--bold-primary);
+	letter-spacing: -2.08px;
+
+	@include responsive.mobile {
+		margin-bottom: 20px;
 		font-size: 20px;
-		line-height: 140%;
-		letter-spacing: 0%;
-		text-align: center;
+		line-height: 22px;
 	}
+}
 
-	.contentContainer {
+.tabs {
+	:global(.ant-tabs-nav-list) {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr;
 		width: 100%;
-		border-radius: 6px;
-		background: var(--input-background);
-		border: 1px solid var(--faq-question-border-color);
-		padding: 30px;
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
 	}
 
-	.bottomContainer {
-		width: 100%;
-		display: flex;
-		gap: 32px;
-		justify-content: space-between;
+	:global(.ant-tabs-tab) {
+		justify-content: center;
+		margin: 0 !important;
+		border-bottom: 4px solid var(--light-bg) !important;
 
-		img {
-			width: calc(100% / 2 - 10px);
-			height: min-content;
-		}
-	}
+		:global(.ant-tabs-tab-btn) {
+			font-family: var(--font-space_grotesk);
+			font-size: 16px;
+			font-weight: 700;
+			font-style: normal;
+			line-height: 22px;
+			color: var(--primary);
 
-	.questionsContainer {
-		display: flex;
-		flex-direction: column;
-		width: calc(100% / 2);
-		gap: 10px;
-	}
-
-	.buttonsContainer {
-		width: 100%;
-		border-radius: 6px;
-		padding: 30px;
-		border: 1px solid var(--faq-question-border-color);
-		display: flex;
-		gap: 32px;
-		background: var(--about-aisc-hat-background);
-
-		button {
-			width: 100%;
-			padding: 56px 0;
-			border-radius: 6px;
-			font-weight: 600;
-			font-size: 32px;
-			line-height: 100%;
-			letter-spacing: 0%;
-			text-align: center;
-
-			color: var(--profile-items-span-text-color);
-			span {
-				font-size: 20px;
+			@include responsive.mobile {
+				font-size: 14px;
+				line-height: 20px;
 			}
 		}
 	}
 
-	.activeButton {
-		background: var(--about-aisc-and-hat-background);
-		border: 1px solid var(--about-aisc-and-hat-border);
+	:global(.ant-tabs-tab-active) {
+		border-color: var(--green) !important;
+
+		:global(.ant-tabs-tab-btn) {
+			color: var(--bold-primary) !important;
+			text-shadow: none !important;
+		}
+	}
+
+	:global(.ant-tabs-ink-bar) {
+		display: none !important;
+	}
+
+	:global(.ant-tabs-nav) {
+		margin-bottom: 32px;
+
+		@include responsive.mobile {
+			margin-bottom: 16px;
+		}
+	}
+
+	:global(.ant-collapse-header) {
+		padding: 0 !important;
+	}
+
+	:global(.ant-collapse-item-active) {
+		:global(.ant-collapse-header) {
+			padding-bottom: 16px !important;
+		}
+	}
+
+	:global(.ant-collapse-content-active) {
+		color: var(--primary);
+		background: var(--light-bg);
+	}
+
+	:global(.ant-collapse-expand-icon) {
+		justify-content: center;
+
+		width: 44px;
+		height: 44px !important;
+		padding-inline: 0 !important;
+
+		color: var(--bold-primary);
+
+		border: 1px solid var(--border);
+		border-radius: 12px;
+
+		@include responsive.mobile {
+			width: 32px;
+			height: 32px !important;
+		}
+	}
+}
+
+.accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	background: none;
+	border: none;
+	border-radius: none;
+
+	:global(.ant-collapse-item) {
+		padding: 12px;
+		background: var(--light-bg);
+		border-radius: 12px !important;
+	}
+}
+
+.accordionTitle {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+
+	font-family: var(--font-space_grotesk);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 22px;
+	color: var(--bold-primary);
+
+	@include responsive.mobile {
+		gap: 12px;
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+
+.accordionTitleIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: max-content;
+	padding: 12px;
+
+	background: var(--light-orange-bg);
+	border-radius: 8px;
+
+	img {
+		width: 20px;
+		height: 20px;
+
+		@include responsive.mobile {
+			width: 18px;
+			height: 18px;
+		}
 	}
 
 	@include responsive.mobile {
-		padding: 40px 24px;
-		gap: 32px;
-
-		h2 {
-			font-size: 24px;
-			line-height: 100%;
-		}
-
-		.text {
-			font-size: 14px;
-			line-height: 100%;
-		}
-
-		.textContainer {
-			gap: 10px;
-		}
-
-		.contentContainer {
-			gap: 32px;
-			padding: 14px;
-		}
-
-		.buttonsContainer {
-			flex-direction: column;
-			padding: 14px;
-			gap: 6px;
-
-			button {
-				padding: 17px 0;
-				font-size: 12px;
-
-				span {
-					display: none;
-				}
-			}
-		}
-
-		.bottomContainer {
-			flex-direction: column;
-			img {
-				width: 100%;
-			}
-		}
-
-		.questionsContainer {
-			width: 100%;
-		}
+		padding: 7px;
 	}
 }

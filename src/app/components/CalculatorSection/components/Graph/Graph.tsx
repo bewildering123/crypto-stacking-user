@@ -1,4 +1,5 @@
 import {
+	CartesianGrid,
 	Line,
 	LineChart,
 	ResponsiveContainer,
@@ -20,6 +21,19 @@ import CustomTooltip from "./CustomTooltip";
 import CustomYLabel from "./CustomYLabel";
 import { getGraphData } from "./utils/getGraphData";
 
+const data = [
+	{ day: "1 day", value: 2593.5 },
+	{ day: "2 day", value: 2593.52 },
+	{ day: "3 day", value: 2593.48 },
+	{ day: "4 day", value: 2593.57 },
+	{ day: "5 day", value: 2593.46 },
+	{ day: "6 day", value: 2593.5 },
+	{ day: "7 day", value: 2593.49 },
+	{ day: "8 day", value: 2593.47 },
+	{ day: "9 day", value: 2593.53 },
+	{ day: "10 day", value: 2593.54 },
+];
+
 type Props = {
 	className?: string;
 	sizes?: number;
@@ -36,10 +50,8 @@ type Props = {
 
 const Graph = ({
 	className,
-	sizes,
 	activePoint,
 	button_value,
-	currentValue,
 	hatValue,
 	secondValue,
 	setActivePoint,
@@ -48,7 +60,6 @@ const Graph = ({
 		() => getGraphData(hatValue, secondValue, button_value),
 		[hatValue, secondValue, button_value],
 	);
-
 	const handleMouseMove = (e: any | undefined) => {
 		if (e.activeTooltipIndex !== undefined) {
 			const index = e.activeTooltipIndex;
@@ -68,60 +79,38 @@ const Graph = ({
 		}
 	};
 
-	const [showTooltip, setShowTooltip] = useState(false);
-
 	const isMobile = useMobileDetect();
 
 	return (
 		<div className={clsx(styles.container, className)}>
-			{showTooltip && (
-				<div className={styles.infoContainer}>
-					Calculation is made according to
-					<br />
-					the current exchange rate AISC
-				</div>
-			)}
-			<ResponsiveContainer
-				width={isMobile ? "100%" : "93%"}
-				height={sizes || (isMobile && 200) || 400}
-				style={{ position: "relative" }}
-			>
+			<ResponsiveContainer width="100%" height="100%">
 				<LineChart
-					data={data || []}
+					data={data}
+					margin={{
+						top: 20,
+						right: 30,
+						left: 40,
+						bottom: 20,
+					}}
 					onMouseMove={handleMouseMove}
 					onMouseLeave={() => setActivePoint(null)}
 				>
+					<CartesianGrid
+						strokeDasharray="3 3"
+						stroke="#e0e0e0"
+						vertical={true}
+						horizontal={true}
+					/>
 					<XAxis
 						dataKey="month"
-						stroke="#4F4BAD"
-						strokeWidth={3}
-						tick={{ fill: "#AEACE4", fontSize: isMobile ? "10px" : "17px" }}
-						tickMargin={10}
-						ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
-						tickFormatter={(value) => (value === 0 ? "" : value)}
-						tickLine={{
-							stroke: "#4F4BAD",
-							strokeWidth: 2,
-						}}
-						label={{
-							value: button_value,
-							position: "right",
-							style: {
-								fill: "var(--header-dropdown-sign-in-color)",
-								textAnchor: "middle",
-								fontSize: isMobile ? "10px" : "24px",
-								position: "absolute",
-								fontFamily: "var(--font-inter)",
-								fontWeight: "600",
-							},
-							dy: isMobile ? -35 : -15,
-							dx: !isMobile ? 55 : 0,
-						}}
+						axisLine={false}
+						tickLine={false}
+						tick={{ fontSize: isMobile ? 14 : 16, fill: "var(--primary)" }}
 					/>
 					<YAxis
-						stroke="#4F4BAD"
-						strokeWidth={3}
-						tick={{ fill: "#AEACE4", fontSize: isMobile ? "10px" : "17px" }}
+						axisLine={false}
+						tickLine={false}
+						tick={{ fontSize: isMobile ? 14 : 16, fill: "var(--primary)" }}
 						tickMargin={10}
 						ticks={[
 							...data
@@ -130,54 +119,14 @@ const Graph = ({
 						]}
 						domain={[data[0].balance, data[data.length - 1].balance]}
 						tickFormatter={(value) => (value === 0 ? "" : value)}
-						tickLine={{ stroke: "#4F4BAD", strokeWidth: 2 }}
-						label={
-							<CustomYLabel
-								currentValue={currentValue}
-								setShowTooltip={setShowTooltip}
-							/>
-						}
 					/>
 					<Line
 						type="monotone"
-						activeDot={false}
 						dataKey="balance"
-						stroke="#27256F"
+						stroke="var(--green)"
 						strokeWidth={3}
-						dot={(props) => {
-							if (props.payload.balance === 0) {
-								return (
-									<circle
-										cx={props.cx}
-										cy={props.cy}
-										r={0}
-										fill="#none"
-										stroke=""
-										style={{ zIndex: "-1" }}
-									/>
-								);
-							}
-							return (
-								<circle
-									cx={props.cx}
-									cy={props.cy}
-									r={5}
-									fill="#4F4BAD"
-									stroke=""
-									style={{ zIndex: "-1" }}
-								/>
-							);
-						}}
-					/>
-					<Tooltip
-						content={
-							<CustomTooltip
-								initialSecondValue={secondValue}
-								initialHat={hatValue}
-								activePoint={activePoint}
-							/>
-						}
-						cursor={false}
+						dot={{ fill: "var(--green)", strokeWidth: 0, r: 4 }}
+						activeDot={{ r: 4, fill: "var(--green)" }}
 					/>
 				</LineChart>
 			</ResponsiveContainer>

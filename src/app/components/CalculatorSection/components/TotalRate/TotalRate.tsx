@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { animate, motion } from "motion/react";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 import { useCalculator } from "@/integrations/zustand/calculator/calculator";
@@ -35,8 +36,15 @@ const TotalRate = ({ className, hat }: Props) => {
 
 	return (
 		<div className={clsx(styles.totalRateContainer, className)}>
-			<p>Total rate:</p>
-			<motion.span>{animatedValue}%</motion.span>
+			<Image
+				className={styles.icon}
+				width={18}
+				height={18}
+				src="/img/icons/percent.svg"
+				alt="icon"
+			/>
+			<div className={styles.title}>Total rate</div>
+			<motion.span className={styles.value}>{animatedValue}%</motion.span>
 		</div>
 	);
 };

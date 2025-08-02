@@ -19,6 +19,34 @@ import MenuIcons from "./MenuIcons";
 
 import styles from "./Header.module.scss";
 
+const menuList = [
+	{
+		key: "home",
+		title: "Home",
+		path: "/",
+	},
+	{
+		key: "about",
+		title: "About Us",
+		path: "/about",
+	},
+	{
+		key: "blog",
+		title: "Blog",
+		path: "/blog",
+	},
+	{
+		key: "faq",
+		title: "FAQ",
+		path: "/faq",
+	},
+	{
+		key: "faq",
+		title: "FAQ",
+		path: "/faq",
+	},
+];
+
 const Header = () => {
 	const [menu, setMenu] = useState(false);
 
@@ -61,25 +89,31 @@ const Header = () => {
 		<header className={styles.header}>
 			<div className={styles.container}>
 				<div className={styles.leftContainer}>
+					<MenuIcons menu={menu} setMenu={setMenu} />
 					<Link href={"/"} className={styles.logoContainer}>
 						<Logo />
-						<div className={styles.textContainer}>
-							<p className={styles.logoText}>Ai-Stake Coin</p>
-							{/* <p className={styles.text}>{linksMap.get(path)}</p> */}
-						</div>
+						<div className={styles.logoText}>Ai-Stake Coin</div>
 					</Link>
-					<div className={styles.sectionContainer}>
-						<Link href={"/#about"}>About</Link>
-						<Link href={"/#faq"}>FAQ</Link>
-						<Link href={"/#contact"}>Contact us</Link>
-					</div>
+				</div>
+
+				<div className={styles.sectionContainer}>
+					{menuList.map((item) => (
+						<Link
+							key={item.key}
+							href={item.path}
+							className={`${styles.sectionItem} ${path === item.path ? "active" : ""}`}
+						>
+							{item.title}
+						</Link>
+					))}
+				</div>
+				<div className={styles.rightContainer}>
 					<div className={styles.theme}>
 						<ThemeSwitcher />
 					</div>
-					<MenuIcons menu={menu} setMenu={setMenu} />
-				</div>
 
-				<User need setMenu={setMenu} />
+					<User need setMenu={setMenu} />
+				</div>
 			</div>
 			{menu &&
 				(user ? (

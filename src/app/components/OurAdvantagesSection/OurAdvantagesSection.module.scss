@@ -1,164 +1,218 @@
-@use "@/shared/styles/responsive.scss";
+@use "@/shared/styles/responsive";
 
 .container {
+	padding: 80px 0;
+
+	@include responsive.mobile {
+		padding: 16px 0;
+	}
+}
+
+.top {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.topIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 18px;
+
+	background: var(--light-green-bg);
+	border-radius: 16px;
+
+	@include responsive.mobile {
+		padding: 10px;
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+
+		@include responsive.mobile {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.topText {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 70px;
+	gap: 8px;
+	margin-bottom: 32px;
 
-	width: 100%;
-	padding: 160px 100px 160px 157px;
-
-	background: var(--faq-bg);
-
-	h2 {
-		font-family: var(--font-versus);
-		font-size: 60px;
-		font-weight: 900;
-		line-height: 79.2px;
-		color: var(--header-user-text-color);
-		text-align: center;
-		text-transform: uppercase;
-
-		span {
-			color: #746fe5;
-		}
+	@include responsive.mobile {
+		margin-bottom: 20px;
 	}
+}
 
-	.textContainer {
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-		align-items: center;
-	}
+.title {
+	font-family: var(--font-space_grotesk);
+	font-size: 40px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 36px;
+	color: var(--bold-primary);
 
-	.text {
-		color: var(--profile-items-span-text-color);
-		font-family: var(--font-inter);
-		font-weight: 400;
+	@include responsive.mobile {
 		font-size: 20px;
-		line-height: 140%;
-		letter-spacing: 0%;
-		text-align: center;
+		line-height: 22px;
+	}
+}
+
+.description {
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 24px;
+	color: var(--primary);
+
+	@include responsive.mobile {
+		font-size: 13px;
+		line-height: 16px;
+	}
+}
+
+.sliderContainer {
+	position: relative;
+	margin-bottom: 24px;
+
+	&::after {
+		pointer-events: none;
+		content: "";
+
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+
+		width: 5%;
+		height: 100%;
+
+		background: linear-gradient(
+			90deg,
+			rgb(234 236 239 / 0%) 0%,
+			#eaecef 46.68%
+		);
 	}
 
-	a {
+	:global([data-theme="dark"]) &::after {
+		background: linear-gradient(90deg, rgb(24 29 28 / 0%) 0%, #181d1c 46.68%);
+	}
+
+	:global(.swiper-wrapper) {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		align-items: stretch;
 
-		width: 252px;
-		height: 52px;
-
-		font-size: 16px;
-		font-weight: 600;
-		line-height: 19.2px;
-		color: var(--main-section-buy-button-text);
-		text-align: center;
-		transition: 0.8s;
-
-		background: var(--main-section-buy-button-bg);
-		border-radius: 4px;
-		box-shadow: 17px 7px 12.9px 0px #918cfb inset;
-		box-shadow: 0px 4px 4px 0px #00000040;
-		box-shadow: var(--main-section-buy-button-shadow);
-		outline: 2px solid var(--main-section-buy-button-bg);
-
-		&:hover {
-			background: var(--main-section-buy-button-text);
-			color: var(--main-section-buy-button-bg);
+		:global(.swiper-slide) {
+			height: auto !important;
 		}
-	}
-
-	.blocksContainer {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 32px;
-		row-gap: 40px;
-		width: 100%;
-	}
-	.block {
-		width: calc(100% / 3 - 64px);
-		background: var(--input-background);
-		border-radius: 6px;
-		padding: 30px;
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-		border: 1px solid #6a68e0;
-		font-family: var(--font-inter);
-	}
-
-	.textCont {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-
-		color: var(--header-dropdown-sign-in-color);
-		font-size: 17px;
-		line-height: 140%;
-		letter-spacing: 0%;
-		text-align: left;
-		font-weight: 400;
-		span {
-			font-weight: 600;
-		}
-	}
-	.mobileContainer {
-		display: none;
-		flex-direction: column;
-		gap: 15px;
-		width: 100%;
-
-		div {
-			width: 100%;
-		}
-	}
-
-	.carouselContainer {
-		display: none;
 	}
 
 	@include responsive.mobile {
-		align-items: center;
-		padding: 87px 18px;
-		padding-top: 43px;
+		margin-bottom: 20px;
+	}
+}
 
-		.blocksContainer {
-			display: none;
-		}
+.sliderItem {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 
-		.carouselContainer {
-			display: flex;
-			width: 100%;
-			height: auto;
-			overflow: hidden;
-		}
-		.slide {
-			div {
-				width: 100%;
-			}
-			flex: 0 0 100%;
-			min-width: 0;
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-		}
+	height: 100%;
+	padding: 24px;
 
-		h2 {
-			font-size: 24px;
-			line-height: 31px;
-		}
+	background: var(--light-bg);
+	border-radius: 12px;
 
-		.textContainer {
-			gap: 10px;
-		}
-		.text {
-			font-size: 14px;
-		}
+	@include responsive.mobile {
+		gap: 8px;
+		padding: 16px;
+	}
+}
 
-		a {
-			width: 100%;
+.sliderIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: max-content;
+	padding: 14px;
+
+	background: var(--main-bg);
+	border-radius: 12px;
+
+	@include responsive.mobile {
+		padding: 10px;
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+
+		@include responsive.mobile {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	:global([data-theme="dark"]) & img {
+		filter: invert(1);
+	}
+}
+
+.sliderTitle {
+	font-family: var(--font-space_grotesk);
+	font-size: 28px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 26px;
+	color: var(--bold-primary);
+
+	@include responsive.mobile {
+		font-size: 15px;
+		line-height: 20px;
+	}
+}
+
+.sliderText {
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 24px;
+	color: var(--primary);
+
+	@include responsive.mobile {
+		font-size: 13px;
+		line-height: 16px;
+	}
+}
+
+.sliderButtons {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.sliderButton {
+	padding: 12px;
+
+	&:global(.advantages-button-next) {
+		transform: rotate(180deg);
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+
+		@include responsive.mobile {
+			width: 20px;
+			height: 20px;
 		}
 	}
 }

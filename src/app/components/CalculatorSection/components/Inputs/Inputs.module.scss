@@ -1,123 +1,140 @@
-@use "@/shared/styles/responsive.scss";
+@use "@/shared/styles/responsive";
 
 .container {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: center;
+
+	@include responsive.mobile {
+		grid-template-columns: 100%;
+		gap: 8px;
+	}
+}
+
+.itemContainer {
+	height: 100%;
+	padding: 24px;
+
+	background: var(--light-bg);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+
+	@include responsive.mobile {
+		padding: 16px;
+	}
+}
+
+.title {
+	margin-bottom: 8px;
+
+	font-family: var(--font-space_grotesk);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 22px;
+
+	@include responsive.mobile {
+		margin-bottom: 4px;
+		font-size: 15px;
+		line-height: 20px;
+	}
+}
+
+.slider {
 	width: 100%;
-	justify-content: space-between;
 
-	.hatContainer {
-		display: flex;
-		gap: 20px;
-		width: calc((100% / 2) - 20px);
+	:global(.ant-slider-track) {
+		background: var(--green-gradient);
+	}
 
-		.text {
-			margin-top: 6px;
-			font-weight: 600;
-			font-size: 20px;
-			line-height: 100%;
-			letter-spacing: 0%;
-			color: var(--header-dropdown-sign-in-color);
-		}
+	:global(.ant-slider-rail) {
+		background: var(--main-bg) !important;
+	}
 
-		.slider {
-			width: 95%;
+	:global(.ant-slider-mark-text) {
+		font-size: 14px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 18px;
+		color: var(--primary) !important;
+	}
+
+	:global(.ant-slider-handle) {
+		&::after {
+			background: var(--green) !important;
+			border: 1px solid var(--orange);
+			border-radius: 30px;
 		}
 	}
 
-	@include responsive.mobile {
-		flex-direction: column;
-		gap: 45px;
+	:global(.ant-slider-dot) {
+		background: var(--main-bg) !important;
+	}
 
-		.hatContainer {
-			width: 100%;
-			gap: 40px;
-			flex-direction: column;
-			.text {
-				color: #746fe5;
-				font-size: 12px;
-			}
-		}
+	:global(.ant-slider-dot-active) {
+		background: var(--green) !important;
 	}
 }
 
 .toolContainer {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	color: #aeace4;
-	font-family: var(--font-inter);
-	font-weight: 600;
-	font-size: 17px;
-	line-height: 120%;
-	letter-spacing: 0%;
-	text-align: center;
-	position: relative;
+	padding: 4px 8px;
 
-	vertical-align: middle;
-	pointer-events: all !important;
+	font-family: var(--font-space_grotesk);
+	font-size: 16px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 22px;
 
-	p {
-		display: flex;
-		align-items: center;
-	}
+	background: var(--green-gradient);
+	border-radius: 4px;
 
-	input {
-		color: #aeace4;
-		font-family: var(--font-inter);
-		font-weight: 600;
-		font-size: 17px;
-		line-height: 120%;
-		letter-spacing: 0%;
-		max-width: 60px;
-		width: min-content !important;
-		background: none;
-		outline: none;
-		border: none;
+	@include responsive.mobile {
+		font-size: 14px;
+		line-height: 20px;
 	}
 }
 
-.hatAndAiscContainer {
-	display: flex;
-	gap: 20px;
-	width: calc((100% / 2) - 20px);
-
-	.text {
-		margin-top: 7px;
-		font-weight: 400;
-		font-size: 20px;
-		line-height: 100%;
-		letter-spacing: 0%;
-		color: #97a0ff33;
-		width: max-content;
-		display: flex;
-		gap: 5px;
-
-		span {
-			color: #aeace4;
-			cursor: pointer;
-		}
-	}
-
-	.active {
-		color: #746fe5 !important;
-		text-decoration: underline;
-	}
-
-	.slider {
-		width: 100%;
-	}
+.select {
+	font-family: var(--font-space_grotesk);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 22px;
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
-		width: 100%;
-		gap: 40px;
-		flex-direction: column;
-		.text {
-			color: #746fe5;
-			font-size: 12px;
-		}
+		font-size: 15px;
+		line-height: 20px;
+	}
 
-		.slider {
-			width: 95%;
+	:global(.ant-select-arrow) {
+		display: block !important;
+	}
+
+	:global(.ant-select-selector) {
+		border: none !important;
+	}
+}
+
+.selectDropdown {
+	:global(.ant-select-item-option-content) {
+		font-family: var(--font-space_grotesk);
+		font-size: 20px;
+		font-weight: 500 !important;
+		font-style: normal;
+		line-height: 22px;
+		color: var(--bold-primary) !important;
+
+		@include responsive.mobile {
+			font-size: 15px;
+			line-height: 20px;
 		}
 	}
+}
+
+.usdt {
+	display: flex;
+	gap: 8px;
+	align-items: center;
 }

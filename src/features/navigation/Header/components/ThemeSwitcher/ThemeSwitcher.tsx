@@ -1,11 +1,9 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 import { useThemeType } from "@/integrations/hooks/useThemeType";
-
-import Dark from "./icons/dark.svg";
-import Light from "./icons/light.svg";
 
 import styles from "./ThemeSwitcher.module.scss";
 
@@ -17,28 +15,21 @@ const ThemeSwitcher = () => {
 	return (
 		<div className={styles.switchContainer}>
 			<div
-				style={{
-					marginRight: "-12px",
-					paddingTop: "2px",
-				}}
+				className={`${styles.switchItem} ${whichTheme === "light" ? "active" : ""}`}
+				onClick={() => setTheme("light")}
 			>
-				<Light />
+				<Image
+					src="/img/icons/brightness.svg"
+					width={20}
+					height={20}
+					alt="sun"
+				/>
 			</div>
-			<input
-				type="checkbox"
-				id="switch"
-				checked={whichTheme === "dark" ? true : false}
-				onChange={() => {
-					if (whichTheme === "dark") {
-						setTheme("light");
-					} else {
-						setTheme("dark");
-					}
-				}}
-			/>
-			<label htmlFor="switch">Toggle</label>
-			<div className={styles.nightSvg}>
-				<Dark />
+			<div
+				className={`${styles.switchItem} ${whichTheme === "dark" ? "active" : ""}`}
+				onClick={() => setTheme("dark")}
+			>
+				<Image src="/img/icons/moon.svg" width={20} height={20} alt="sun" />
 			</div>
 		</div>
 	);

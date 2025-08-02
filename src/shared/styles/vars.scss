@@ -1,0 +1,63 @@
+@use "@/shared/styles/responsive";
+
+:root {
+	/* Sizes */
+	--font-size: 16px;
+
+	/* Colors */
+	--white: #fff;
+	--bold-primary: #051427;
+	--primary: #586679;
+	--green: #1cc1ad;
+	--grey: #dbdee3;
+	--red: #f32e2e;
+	--orange: #f3ae2e;
+	--blured: #c5c8cd;
+
+	/* Borders */
+	--border: #dbdee3;
+
+	/* BG */
+	--main-bg: #eaecef;
+	--green-gradient: linear-gradient(90deg, #1cc1ad 0%, #f3ae2e 100%);
+	--light-orange-bg: rgb(243 174 46 / 10%);
+	--light-green-bg: rgb(28 193 173 / 10%);
+	--light-grey-bg: rgb(28 193 173 / 10%);
+	--light-bg: #fff;
+	--red-bg: rgb(243 46 46 / 10%);
+	--container-bg: repeating-linear-gradient(
+		to right,
+		#dbdee3 0,
+		#dbdee3 var(--line-width),
+		transparent var(--line-width),
+		transparent var(--bg-gap)
+	);
+	--bg-gap: 130px;
+	--line-width: 1px;
+}
+
+:root[data-theme="dark"] {
+	--bold-primary: #f7f9fc;
+	--primary: #c3ccd8;
+	--blured: #9da1a7;
+
+	/* Borders */
+	--border: #3f4343;
+
+	/* BG */
+	--main-bg: #181d1c;
+	--light-bg: #242827;
+	--container-bg: repeating-linear-gradient(
+		to right,
+		#353a3a 0,
+		#353a3a var(--line-width),
+		transparent var(--line-width),
+		transparent var(--bg-gap)
+	);
+}
+
+@include responsive.mobile {
+	:root {
+		--font-size: 14px;
+	}
+}

@@ -1,32 +1,119 @@
-@use "@/shared/styles/responsive.scss";
+@use "@/shared/styles/responsive";
 
 .container {
-	padding: 70px 160px;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 70px;
+	gap: 20px;
 
-	h2 {
-		font-family: var(--font-versus);
-		font-size: 70px;
-		font-weight: 900;
-		line-height: 92.4px;
-		color: #746fe5;
-		text-transform: uppercase;
-		text-align: center;
+	@include responsive.mobile {
+		padding: 12px;
+	}
+}
 
-		span {
-			color: var(--header-user-text-color);
+.wrapper {
+	overflow-x: auto;
+
+	padding: 40px;
+
+	background: var(--light-bg);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+
+	@include responsive.mobile {
+		padding: 16px;
+	}
+}
+
+.top {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	justify-content: space-between;
+
+	margin-bottom: 34px;
+
+	@include responsive.mobile {
+		grid-template-columns: 100%;
+		gap: 16px;
+		margin-bottom: 16px;
+	}
+}
+
+.topContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	@include responsive.mobile {
+		gap: 16px;
+	}
+}
+
+.title {
+	font-family: var(--font-space_grotesk);
+	font-size: 44px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 60px; /* 136.364% */
+	color: var(--bold-primary);
+	letter-spacing: -1.76px;
+
+	@include responsive.mobile {
+		font-size: 20px;
+		line-height: 22px;
+	}
+}
+
+.segmented {
+	width: max-content;
+	padding: 4px;
+	background: var(--main-bg);
+	border-radius: 12px;
+
+	:global(.ant-segmented-item) {
+		padding: 14px 20px;
+
+		font-family: var(--font-space_grotesk);
+		font-size: 16px;
+		font-weight: 700;
+		font-style: normal;
+		line-height: 22px;
+		color: var(--bold-primary);
+
+		border: 1px solid transparent;
+		border-radius: 12px;
+
+		@include responsive.mobile {
+			padding: 10px 16px;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		:global(.ant-segmented-item-label) {
+			min-height: initial;
+			padding: 0;
 		}
 	}
 
+	:global(.ant-segmented-item:hover),
+	:global(.ant-segmented-item-selected) {
+		color: var(--bold-primary) !important;
+		background: var(--light-bg);
+		border: 1px solid var(--border);
+	}
+}
+
+.description {
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 24px;
+	color: var(--primary);
+	text-align: right;
+
 	@include responsive.mobile {
-		padding: 40px 24px;
-		gap: 32px;
-		h2 {
-			font-size: 24px;
-			line-height: 100%;
-		}
+		font-size: 13px;
+		line-height: 16px;
 	}
 }

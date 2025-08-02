@@ -1,43 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
-import image from "./icon/image.png";
+import Button from "@/shared/components/Button/Button";
 
 import styles from "./AboutSection.module.scss";
 
 const AboutSection = () => {
 	return (
 		<section className={styles.container} id="about">
-			<h2>
-				About <span>aisc</span>
-			</h2>
-			<div className={styles.aboutContainer}>
-				<div className={styles.textContainer}>
-					<p>
-						Revolutionizing Blockchain with <span>AI AISC</span> merges
-						artificial intelligence with blockchain technology, creating a
-						stable, rewarding, and innovative financial ecosystem. <br /> <br />{" "}
-						<span>
-							AISC (AI Stake Coin) – Your Path to Earnings and AI-Powered
-							Blockchain Development
-						</span>{" "}
-						<br />
-						<br /> AISC is a Proof-of-Stake cryptocurrency that allows you not
-						only to earn but also to participate in the development of
-						cutting-edge blockchain technology powered by artificial
-						intelligence. The project ecosystem includes an additional token –
-						HAT. The more HAT you have, the more AISC you receive daily from
-						mining. <br />
-						<br /> One of AISC’s key features is its stability: its price
-						remains nearly unchanged, making it a reliable tool for long-term
-						earnings. By investing in AISC, you become part of the AI blockchain
-						revolution!
-					</p>
-					<Link href={"/about"}>Learn More</Link>
+			<div className={styles.blockLeft}>
+				<div className={styles.buttonTitle}>
+					<Image
+						src="/img/icons/stars.svg"
+						width={24}
+						height={24}
+						className={styles.buttonTitleImage}
+						alt="About"
+					/>
+					<div className={styles.buttonTitleText}>About Us</div>
 				</div>
-				<Image src={image} alt="logo" />
+				<h2 className={styles.title}>
+					Transforming Blockchain Through AI Innovation
+				</h2>
+				<div className={styles.description}>
+					AISC is a next-generation Proof-of-Stake cryptocurrency designed not
+					only to generate passive income, but also to involve holders in the
+					evolution of AI-powered blockchain infrastructure. The ecosystem also
+					features a complementary token — HAT. The more HAT you own, the
+					greater your daily AISC mining rewards
+				</div>
+			</div>
+			<div className={styles.blockRight}>
+				<div className={styles.description}>
+					One of AISC’s standout advantages is price stability, making it a
+					trusted option for long-term investment and consistent earnings
+				</div>
+				<Button href="/faq" className={styles.btnMore}>
+					<span>Learn more</span>
+					<Image
+						src="/img/icons/arrow-long-green.svg"
+						width={24}
+						height={24}
+						alt="icon"
+					/>
+				</Button>
 			</div>
 		</section>
 	);

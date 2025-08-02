@@ -1,21 +1,19 @@
 "use client";
 
-import cx, { clsx } from "clsx";
-import { AnimatePresence, motion } from "motion/react";
+import { Dropdown, MenuProps } from "antd";
+import cx from "clsx";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import { client } from "@/integrations/apollo/client";
-import { useMobileDetect } from "@/integrations/hooks/useMobile";
 import useUserStore from "@/integrations/zustand/user/user";
 import useView from "@/integrations/zustand/view/view";
+import Button from "@/shared/components/Button/Button";
 import Spinner from "@/shared/components/Spinner/Spinner";
 
-import DropDown from "./components/DropDown/DropDown";
-import Balance from "./icons/balance.svg";
-import Eye from "./icons/eye.svg";
-import Hand from "./icons/hand.svg";
+import UserBalance from "./components/UserBalance/UserBalance";
 import { getMe, unwrappedUser } from "./queries/queries";
 
 import styles from "./User.module.scss";
@@ -34,9 +32,72 @@ const User = ({ need, setMenu }: Props) => {
 
 	const { setUser, user, clearUser } = useUserStore();
 
-	const isMobile = useMobileDetect();
-
-	const [eyeActive, setEyeActive] = useState(true);
+	const items: MenuProps["items"] = [
+		{
+			key: "1",
+			label: (
+				<Link href={"/profile"}>
+					<Image
+						src="/img/icons/user-square.svg"
+						width={20}
+						height={20}
+						alt="user"
+					/>
+					Profile
+				</Link>
+			),
+		},
+		{
+			key: "2",
+			label: (
+				<Link href={"/transactions"}>
+					<Image
+						src="/img/icons/form.svg"
+						width={20}
+						height={20}
+						alt="transaction"
+					/>
+					Transaction History
+				</Link>
+			),
+		},
+		{
+			key: "3",
+			label: (
+				<Link href={"/settings"}>
+					<Image
+						src="/img/icons/form.svg"
+						width={20}
+						height={20}
+						alt="transaction"
+					/>
+					Settings
+				</Link>
+			),
+		},
+		{
+			key: "4",
+			label: (
+				<Link
+					href={"/"}
+					onClick={() => {
+						clearUser();
+						signOut({
+							callbackUrl: "/",
+						});
+					}}
+				>
+					<Image
+						src="/img/icons/box-arrow-right.svg"
+						width={20}
+						height={20}
+						alt="log out"
+					/>
+					Log Out
+				</Link>
+			),
+		},
+	];
 
 	useEffect(() => {
 		const getData = async () => {
@@ -59,83 +120,48 @@ const User = ({ need, setMenu }: Props) => {
 		getData();
 	}, [data]);
 
-	const getValue = (num?: number, mobile?: boolean) => {
-		const number = Math.floor((num || 0) * 10000) / 10000;
-		if (eyeActive) {
-			return mobile ? Math.floor(number) : number;
-		}
-		return "*".repeat(number.toString().length);
-	};
-
 	return (
-		<div className={cx(styles.container, need && !user && styles.none)}>
+		<div className={cx(styles.container)}>
 			{(status as any) === "loading" ? (
 				<Spinner />
 			) : user !== null && data ? (
 				<div className={styles.userContainer}>
-					<div className={styles.moneyContainer}>
-						<Balance />
-
-						<div>
-							<p>{getValue(user.aics)} AISC</p>
-							<p className={styles.mobile}>{getValue(user.aics, true)} AISC</p>
-							<span>{getValue(user.hat)} HAT</span>
-							<span className={styles.mobile}>
-								{getValue(user.hat, true)} HAT
-							</span>
-							<span>{getValue(user.usdt)} USDT </span>
-							<span className={styles.mobile}>
-								{getValue(user.usdt, true)} USDT{" "}
-							</span>
-						</div>
-						<div className={styles.eye}>
-							<Eye onClick={() => setEyeActive(!eyeActive)} />
-						</div>
-					</div>
-					<Link
-						href={(isMobile && "/profile") || ""}
-						onMouseEnter={() => setView(true)}
-						onMouseLeave={() => setView(false)}
-						onClick={() => isMobile && setMenu && setMenu(false)}
-						className={clsx(styles.nameContainer, need && styles.none)}
+					<UserBalance />
+					<Dropdown
+						open={view}
+						menu={{ items }}
+						className={styles.userDropdown}
 					>
-						<Hand />
-
-						<p>
-							Hello <span>{data.user?.name}</span>
-						</p>
-					</Link>
-					<AnimatePresence>
-						{view && (
-							<div
-								onMouseEnter={() => setView(true)}
-								onMouseLeave={() => setView(false)}
-								className={styles.dropdownContainer}
-							>
-								<DropDown />
+						<Button
+							className={`${styles.userButton}`}
+							onClick={() => setView(!view)}
+						>
+							<Image
+								src="/img/icons/user-check-circle.svg"
+								width={20}
+								height={20}
+								alt="user"
+							/>
+							<div lassName={`${styles.userButtonName}`}>
+								@{data.user?.name}
 							</div>
-						)}
-					</AnimatePresence>
+							<Image
+								src="/img/icons/chevron.svg"
+								width={24}
+								height={24}
+								alt="chevron"
+								className={`${styles.userButtonArrow} ${view ? "active" : ""}`}
+							/>
+						</Button>
+					</Dropdown>
 				</div>
 			) : (
-				(!need || viewComponent) && (
-					<>
-						<motion.a
-							whileHover={{ scale: 1.03 }}
-							href={"/register"}
-							className={styles.registerButton}
-						>
-							Buy now
-						</motion.a>
-						<motion.a
-							whileHover={{ scale: 1.03 }}
-							href={"/sign-in"}
-							className={styles.signInButton}
-						>
-							Sign in
-						</motion.a>
-					</>
-				)
+				<>
+					<Button href="/sign-in">Sign in</Button>
+					<Button href="/register" color="green">
+						Registration
+					</Button>
+				</>
 			)}
 		</div>
 	);

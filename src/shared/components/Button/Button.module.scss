@@ -1,28 +1,44 @@
+@use "@/shared/styles/responsive";
+
 .button {
-	width: 450px;
-	height: 52px;
-	border-radius: 6px;
-	background: #746fe5;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 18.77px;
-	text-align: center;
 	display: flex;
+	gap: 5px;
 	align-items: center;
 	justify-content: center;
-	text-underline-position: from-font;
-	text-decoration-skip-ink: none;
-	color: #fff;
 
-	&:disabled {
-		background: #746fe580;
-		color: #ffffff80;
+	padding: 14px 20px;
+
+	font-family: var(--font-space_grotesk);
+	font-size: 1rem;
+	font-weight: 700;
+	text-align: center;
+
+	background: var(--light-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+
+	@include responsive.mobile {
+		padding: 10px 15px;
+		font-size: 13px;
 	}
 
-	div {
-		width: 20px !important;
-		height: 20px !important;
-		padding: 0 !important;
-		margin: 0 !important;
+	&:global(.green) {
+		color: var(--white);
+		background: var(--green);
+		border-color: var(--green);
+	}
+
+	&:disabled {
+		color: var(--primary);
+		background: var(--grey);
+	}
+
+	img {
+		width: 20px;
+		height: 20px;
+	}
+
+	@include responsive.mobile {
+		padding: 12px 18px;
 	}
 }

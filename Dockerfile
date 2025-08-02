@@ -1,9 +1,7 @@
 FROM  node:22-alpine as base
-RUN corepack enable && corepack prepare yarn@stable --activate
 WORKDIR /app
 COPY package.json  ./
 COPY yarn.lock ./
-COPY .yarnrc.yml ./
 RUN yarn install
 
 FROM base as builder

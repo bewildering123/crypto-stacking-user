@@ -1,18 +1,35 @@
+import Link from "next/link";
+import { HTMLProps } from "react";
+
 import Spinner from "../Spinner/Spinner";
 
 import styles from "./Button.module.scss";
 
 type Props = {
-	text: string;
-	handleClick: () => void;
-	disabled: boolean;
 	loading?: boolean;
+	color?: "primary" | "green";
+	href?: string;
 };
 
-const Button = ({ disabled, handleClick, text, loading = false }: Props) => {
-	return (
-		<button disabled={disabled} onClick={handleClick} className={styles.button}>
-			{loading ? <Spinner /> : text}
+const Button = ({
+	children,
+	loading = false,
+	className = "",
+	color = "primary",
+	href,
+	...props
+}: Props & HTMLProps<HTMLButtonElement | HTMLLinkElement>) => {
+	return href ? (
+		<Link
+			href={href}
+			className={`${styles.button} ${color} ${className}`}
+			{...props}
+		>
+			{loading ? <Spinner /> : children}
+		</Link>
+	) : (
+		<button className={`${styles.button} ${color} ${className}`} {...props}>
+			{loading ? <Spinner /> : children}
 		</button>
 	);
 };

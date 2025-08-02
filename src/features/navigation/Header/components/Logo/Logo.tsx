@@ -1,14 +1,9 @@
 "use client";
 
-import { useThemeType } from "@/integrations/hooks/useThemeType";
-
-import LogoBlack from "../../icons/logo.svg";
-import LogoWhite from "../../icons/logoWhite.svg";
+import Image from "next/image";
 
 const Logo = () => {
-	const theme = useThemeType();
-
-	return <>{theme === "light" ? <LogoWhite /> : <LogoBlack />}</>;
+	return <Image src="/img/logo.svg" alt="logo" width={45} height={45} />;
 };
 
 export default Logo;
