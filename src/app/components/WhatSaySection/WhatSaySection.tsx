@@ -17,7 +17,6 @@ const WhatSaySection = () => {
 	const swiperRef = useRef(null);
 
 	const [feedback, setFeedback] = useState<any[]>([]);
-	console.log(data);
 
 	useEffect(() => {
 		if (data && !loading) {
