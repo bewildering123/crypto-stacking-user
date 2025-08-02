@@ -33,6 +33,7 @@
 	font-weight: 500;
 	font-style: normal;
 	line-height: 22px;
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
 		margin-bottom: 4px;
@@ -118,6 +119,8 @@
 }
 
 .selectDropdown {
+	width: max-content;
+
 	:global(.ant-select-item-option-content) {
 		font-family: var(--font-space_grotesk);
 		font-size: 20px;

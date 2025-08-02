@@ -26,6 +26,11 @@
 	margin: 0 auto;
 	padding: 15px 20px;
 
+	background: var(--container-bg);
+	background-color: var(--main-bg);
+	background-position: 20px top;
+	background-size: var(--bg-gap) 100%;
+
 	.sectionContainer {
 		display: flex;
 		gap: 30px;
@@ -57,7 +62,8 @@
 		font-style: normal;
 		color: var(--primary);
 
-		&:global(.active) {
+		&:global(.active),
+		&:hover {
 			color: var(--bold-primary);
 		}
 	}
@@ -80,7 +86,7 @@
 		font-family: var(--font-space_grotesk);
 		font-size: 18px;
 		font-weight: 700;
-		color: var(--primary);
+		color: var(--bold-primary);
 
 		@include responsive.mobile {
 			display: none;

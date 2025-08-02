@@ -72,6 +72,8 @@
 	border-radius: 12px;
 
 	:global(.ant-segmented-item) {
+		transform: none;
+
 		padding: 14px 20px;
 
 		font-family: var(--font-space_grotesk);
@@ -83,6 +85,11 @@
 
 		border: 1px solid transparent;
 		border-radius: 12px;
+		box-shadow: none !important;
+
+		&::after {
+			display: none;
+		}
 
 		@include responsive.mobile {
 			padding: 10px 16px;
@@ -96,8 +103,15 @@
 		}
 	}
 
+	:global(.ant-segmented-thumb) {
+		transform: none !important;
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
 	:global(.ant-segmented-item:hover),
 	:global(.ant-segmented-item-selected) {
+		transform: none !important;
 		color: var(--bold-primary) !important;
 		background: var(--light-bg);
 		border: 1px solid var(--border);

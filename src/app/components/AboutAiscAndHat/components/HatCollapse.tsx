@@ -25,7 +25,17 @@ const items: CollapseProps["items"] = [
 	{
 		key: "2",
 		label: (
-			<div className={styles.accordionTitle}>Cannot Be Bought or Sold</div>
+			<div className={styles.accordionTitle}>
+				<div className={styles.accordionTitleIcon}>
+					<Image
+						src="/img/icons/magic-wand.svg"
+						width={20}
+						height={20}
+						alt="icon"
+					/>
+				</div>
+				Cannot Be Bought or Sold
+			</div>
 		),
 		children:
 			"HAT is a unique token that can only be earned through platform activities, not traded.",
@@ -33,7 +43,17 @@ const items: CollapseProps["items"] = [
 	{
 		key: "3",
 		label: (
-			<div className={styles.accordionTitle}>Earn HAT by Playing Games</div>
+			<div className={styles.accordionTitle}>
+				<div className={styles.accordionTitleIcon}>
+					<Image
+						src="/img/icons/magic-wand.svg"
+						width={20}
+						height={20}
+						alt="icon"
+					/>
+				</div>
+				Earn HAT by Playing Games
+			</div>
 		),
 		children:
 			"Play fun games like Screen, Sapper, and Guess to collect HAT and increase your rewards.",
@@ -41,7 +61,17 @@ const items: CollapseProps["items"] = [
 	{
 		key: "4",
 		label: (
-			<div className={styles.accordionTitle}>Fair and Rewarding System</div>
+			<div className={styles.accordionTitle}>
+				<div className={styles.accordionTitleIcon}>
+					<Image
+						src="/img/icons/magic-wand.svg"
+						width={20}
+						height={20}
+						alt="icon"
+					/>
+				</div>
+				Fair and Rewarding System
+			</div>
 		),
 		children:
 			"The HAT distribution model ensures active users benefit the most from increased AISC earnings.",
@@ -50,6 +80,14 @@ const items: CollapseProps["items"] = [
 		key: "5",
 		label: (
 			<div className={styles.accordionTitle}>
+				<div className={styles.accordionTitleIcon}>
+					<Image
+						src="/img/icons/magic-wand.svg"
+						width={20}
+						height={20}
+						alt="icon"
+					/>
+				</div>
 				A Unique Approach to Mining Rewards
 			</div>
 		),

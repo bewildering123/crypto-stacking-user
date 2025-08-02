@@ -39,7 +39,7 @@
 	font-family: var(--font-space_grotesk);
 	font-size: 24px;
 	font-weight: 700;
-	color: var(--primary);
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
 		font-size: 18px;
@@ -93,6 +93,7 @@
 	font-weight: 500;
 	font-style: normal;
 	line-height: 26px;
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
 		margin-bottom: 16px;
@@ -126,7 +127,8 @@
 	line-height: 20px;
 	color: var(--primary);
 
-	&:global(.active) {
+	&:global(.active),
+	&:hover {
 		color: var(--bold-primary);
 	}
 

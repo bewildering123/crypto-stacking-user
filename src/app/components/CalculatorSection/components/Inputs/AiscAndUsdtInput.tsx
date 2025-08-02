@@ -38,6 +38,7 @@ const AiscAndUsdtInput = () => {
 						height={20}
 						alt="usdt"
 						style={{
+							marginTop: "-4px",
 							transition: "transform 0.3s",
 							transform: open ? "rotate(90deg)" : "rotate(-90deg)",
 						}}

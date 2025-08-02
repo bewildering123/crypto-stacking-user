@@ -64,7 +64,7 @@ const ContactUsSection = () => {
 
 					<div className={styles.icon}>
 						<Image
-							src="/img/icons/sparkle.svg"
+							src="/img/icons/sparkle-orange.svg"
 							alt="sparkle"
 							width={24}
 							height={24}
@@ -136,7 +136,7 @@ const ContactUsSection = () => {
 			</div>
 			<div className={styles.rightBlock}>
 				<Image
-					src="/img/pages/home/faq/wallet.png"
+					src="/img/pages/home/contact/contact.png"
 					className={styles.mainImg}
 					width={570}
 					height={541}

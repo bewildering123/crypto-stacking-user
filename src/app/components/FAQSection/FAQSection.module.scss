@@ -62,6 +62,7 @@
 	font-weight: 500;
 	font-style: normal;
 	line-height: 52px; /* 100% */
+	color: var(--bold-primary);
 	letter-spacing: -2.08px;
 
 	@include responsive.mobile {
@@ -133,6 +134,7 @@
 	:global(.ant-collapse-item) {
 		padding: 12px;
 		background: var(--light-bg);
+		border: none;
 		border-radius: 12px !important;
 	}
 
@@ -148,6 +150,12 @@
 
 	:global(.ant-collapse-content-active),
 	:global(.ant-collapse-content) {
+		font-size: 18px;
+
+		@include responsive.mobile {
+			font-size: 16px;
+		}
+
 		color: var(--primary) !important;
 		background: var(--light-bg) !important;
 	}

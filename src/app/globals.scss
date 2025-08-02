@@ -75,6 +75,7 @@ ol {
 }
 
 .ant-select-dropdown {
+	width: max-content;
 	background: var(--registration-country-pick-bg) !important;
 
 	&::-webkit-scrollbar {

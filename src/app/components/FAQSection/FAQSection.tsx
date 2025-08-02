@@ -205,7 +205,7 @@ const FAQSection = () => {
 				</div>
 				<h2 className={styles.title}>Your Questions, Answered</h2>
 				<Image
-					src="/img/pages/home/faq/wallet.png"
+					src="/img/pages/home/qa/question.png"
 					width={353}
 					height={404}
 					alt="faq"
@@ -230,7 +230,7 @@ const FAQSection = () => {
 			/>
 			<div className={styles.mobileBlock}>
 				<Image
-					src="/img/pages/home/faq/wallet.png"
+					src="/img/pages/home/qa/question.png"
 					width={353}
 					height={404}
 					alt="faq"

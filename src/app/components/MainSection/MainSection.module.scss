@@ -117,11 +117,14 @@
 }
 
 .coinBlockDescription {
+	display: flex;
+
 	font-family: var(--font-space_grotesk);
 	font-size: 32px;
 	font-weight: 500;
 	font-style: normal;
 	line-height: 28px;
+	color: var(--bold-primary);
 
 	@include responsive.mobile {
 		font-size: 18px;
