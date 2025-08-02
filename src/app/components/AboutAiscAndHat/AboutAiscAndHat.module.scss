@@ -33,6 +33,16 @@
 
 .mainImg {
 	width: 100%;
+	height: 554px;
+	margin: 0 auto;
+
+	object-fit: contain;
+
+	max-widht: 554px;
+
+	@include responsive.mobile {
+		height: 261px;
+	}
 }
 
 .description {

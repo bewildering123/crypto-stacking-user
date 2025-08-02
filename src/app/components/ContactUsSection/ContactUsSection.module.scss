@@ -149,6 +149,11 @@
 		background: transparent;
 		border: none !important;
 		outline: none !important;
+
+		@include responsive.mobile {
+			font-size: 14px;
+			line-height: 18px;
+		}
 	}
 
 	textarea {

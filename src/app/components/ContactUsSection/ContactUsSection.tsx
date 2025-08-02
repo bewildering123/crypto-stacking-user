@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { client } from "@/integrations/apollo/client";
-import { useThemeType } from "@/integrations/hooks/useThemeType";
 import Button from "@/shared/components/Button/Button";
 import Spinner from "@/shared/components/Spinner/Spinner";
 
@@ -16,8 +15,6 @@ import styles from "./ContactUsSection.module.scss";
 type FormType = { name: string; email: string; phone: string; message: string };
 
 const ContactUsSection = () => {
-	const theme = useThemeType();
-
 	const [error, setError] = useState(false);
 
 	const sendMail: SubmitHandler<FormType> = async (data) => {

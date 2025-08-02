@@ -58,7 +58,6 @@ const AboutAiscAndHat = () => {
 					items={items}
 					className={styles.tabs}
 				/>
-				;
 			</div>
 		</section>
 	);
