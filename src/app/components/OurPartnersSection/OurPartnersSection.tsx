@@ -88,12 +88,6 @@ const OurPartnersSection = () => {
 					slidesPerView="auto"
 					spaceBetween={20}
 					loop={true}
-					autoplay={{
-						delay: 0,
-						disableOnInteraction: false,
-						reverseDirection: true,
-						pauseOnMouseEnter: false,
-					}}
 					breakpoints={{
 						768: {
 							spaceBetween: 20,
@@ -101,6 +95,12 @@ const OurPartnersSection = () => {
 						0: {
 							spaceBetween: 8,
 						},
+					}}
+					autoplay={{
+						delay: 0,
+						disableOnInteraction: false,
+						reverseDirection: true,
+						pauseOnMouseEnter: false,
 					}}
 					speed={20000}
 					className={styles.slider}

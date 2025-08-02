@@ -41,9 +41,9 @@ const menuList = [
 		path: "/faq",
 	},
 	{
-		key: "faq",
-		title: "FAQ",
-		path: "/faq",
+		key: "contact",
+		title: "Contact us",
+		path: "/contact",
 	},
 ];
 

@@ -1,18 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { client } from "@/integrations/apollo/client";
 import { useThemeType } from "@/integrations/hooks/useThemeType";
+import Button from "@/shared/components/Button/Button";
 import Spinner from "@/shared/components/Spinner/Spinner";
 
-import Adress from "./icons/adress.svg";
-import AdressLight from "./icons/adressLight.svg";
-import Email from "./icons/email.svg";
-import EmailLight from "./icons/emailLight.svg";
-import Phone from "./icons/phone.svg";
-import PhoneLight from "./icons/phoneLight.svg";
 import { sendEmailQuery } from "./queries/sendEmail";
 
 import styles from "./ContactUsSection.module.scss";
@@ -58,52 +54,143 @@ const ContactUsSection = () => {
 
 	return (
 		<section className={styles.container} id="contact">
-			<h2>
-				Contact <span>us</span>
-			</h2>
-			<div className={styles.formContainer}>
+			<div className={styles.leftBlock}>
+				<div className={styles.leftBlockTop}>
+					<div>
+						<h2 className={styles.title}>Contact Us</h2>
+
+						<div className={styles.description}>
+							Have questions or need support? We're here to help with anything
+							related to AISC, HAT, or the platform
+						</div>
+					</div>
+
+					<div className={styles.icon}>
+						<Image
+							src="/img/icons/sparkle.svg"
+							alt="sparkle"
+							width={24}
+							height={24}
+						/>
+					</div>
+				</div>
+
 				<form onSubmit={handleSubmit(sendMail)} className={styles.form}>
-					<input autoComplete="off" placeholder="Name" {...register("name")} />
-					<input
-						autoComplete="off"
-						placeholder="Email"
-						{...register("email")}
-					/>
-					<input
-						autoComplete="off"
-						placeholder="Phone"
-						{...register("phone")}
-					/>
-					<textarea placeholder="Message" {...register("message")} />
-					<button disabled={loading}>
-						{(loading && <Spinner />) || "Message"}
-					</button>
-					{error && <p>Error while sending an email</p>}
+					<div className={styles.input}>
+						<Image
+							src="/img/icons/user.svg"
+							width={24}
+							height={24}
+							alt="user"
+						/>
+						<input
+							autoComplete="off"
+							placeholder="Your name"
+							{...register("name")}
+						/>
+					</div>
+					<div className={styles.input}>
+						<Image
+							src="/img/icons/envelope.svg"
+							width={24}
+							height={24}
+							alt="email"
+						/>
+						<input
+							autoComplete="off"
+							placeholder="Your email"
+							{...register("email")}
+						/>
+					</div>
+					<div className={styles.input}>
+						<Image
+							src="/img/icons/phone.svg"
+							width={24}
+							height={24}
+							alt="phone"
+						/>
+						<input
+							autoComplete="off"
+							placeholder="Your phone number"
+							{...register("phone")}
+						/>
+					</div>
+					<div className={styles.input}>
+						<Image
+							src="/img/icons/pen-to-square.svg"
+							width={24}
+							height={24}
+							alt="phone"
+						/>
+						<textarea placeholder="Your message" {...register("message")} />
+					</div>
+
+					<Button
+						className={styles.submitButton}
+						disabled={loading}
+						color="green"
+					>
+						{(loading && <Spinner />) || "Send message"}
+					</Button>
+					{error && (
+						<div className={styles.formError}>Error while sending an email</div>
+					)}
 				</form>
-				<div className={styles.infoContainer}>
-					<div>
-						<label>
-							{theme === "light" ? <EmailLight /> : <Email />}
-							Email
-						</label>
-						<p>info@aisc.online</p>
-					</div>
-					<div>
-						<label>
-							{theme === "light" ? <PhoneLight /> : <Phone />}
-							Phone
-						</label>
-						<p>+1 416 866 8248 </p>
-					</div>
-					<div>
-						<label>
-							{theme === "light" ? <AdressLight /> : <Adress />}
-							Adress
-						</label>
-						<p>
-							110 Yonge Street, Suite 1400, <br /> Toronto, ON, M5C 1T4, Canada
-						</p>
-					</div>
+			</div>
+			<div className={styles.rightBlock}>
+				<Image
+					src="/img/pages/home/faq/wallet.png"
+					className={styles.mainImg}
+					width={570}
+					height={541}
+					alt="wallet"
+				/>
+				<div className={styles.contacts}>
+					<a
+						href="mailto:info@aisc.online"
+						target="_blank"
+						className={styles.contactItem}
+					>
+						<div className={styles.contactIcon}>
+							<Image
+								src="/img/icons/envelope-dot.svg"
+								width={24}
+								height={24}
+								alt="email"
+							/>
+						</div>
+						info@aisc.online
+					</a>
+					<a
+						href="tel:+14168668248"
+						target="_blank"
+						className={styles.contactItem}
+					>
+						<div className={styles.contactIcon}>
+							<Image
+								src="/img/icons/phone-green.svg"
+								width={24}
+								height={24}
+								alt="phone"
+							/>
+						</div>
+						+1 416 866 8248
+					</a>
+					<a
+						href="https://share.google/Qgvp2utq9ozHduA6a"
+						target="_blank"
+						className={styles.contactItem}
+					>
+						<div className={styles.contactIcon}>
+							<Image
+								src="/img/icons/location-pin.svg"
+								width={24}
+								height={24}
+								alt="location"
+							/>
+						</div>
+						110 Yonge Street, Suite 1400, Toronto, ON, M5C 1T4
+					</a>
 				</div>
 			</div>
 		</section>

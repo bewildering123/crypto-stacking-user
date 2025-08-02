@@ -22,8 +22,8 @@ export default function Home() {
 			<AboutAiscAndHat />
 			<OurPartnersSection />
 			<ContactUsSection />
-			<FAQSection />
 			<WhatSaySection />
+			<FAQSection />
 
 			<Footer />
 		</>

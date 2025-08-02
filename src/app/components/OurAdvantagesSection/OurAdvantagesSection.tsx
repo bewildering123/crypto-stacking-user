@@ -77,6 +77,7 @@ const OurAdvantagesSection = () => {
 			</div>
 			<Swiper
 				modules={[Navigation]}
+				loop={true}
 				spaceBetween={20}
 				slidesPerView={3.5}
 				breakpoints={{
