@@ -215,4 +215,8 @@
 			height: 20px;
 		}
 	}
+
+	:global([data-theme="dark"]) & img {
+		filter: invert(1);
+	}
 }
