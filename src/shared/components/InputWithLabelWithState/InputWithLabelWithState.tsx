@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Eye from "@/features/navigation/Header/components/User/icons/eye.svg";
-
 import styles from "./InputWithLabelWithState.module.scss";
 
 type Props = {
@@ -60,9 +58,9 @@ const InputWithLabelWithState = ({
 				}}
 				style={{ border: (error && "1px solid red") || "" }}
 			/>
-			{type === "password" && (
+			{/* {type === "password" && (
 				<Eye className={styles.eye} onClick={() => setView(!view)} />
-			)}
+			)} */}
 		</div>
 	);
 };

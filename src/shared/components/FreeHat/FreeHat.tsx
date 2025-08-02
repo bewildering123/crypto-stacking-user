@@ -66,14 +66,15 @@ const FreeHat = () => {
 							</div>
 						</div>
 						<Button
-							text="Claim Reward"
 							disabled={false}
-							handleClick={() => {
+							onClick={() => {
 								refetch();
 								setPosition(getRandomPosition());
 								setView(false);
 							}}
-						/>
+						>
+							Claim Reward
+						</Button>
 					</div>
 				</div>
 			)}

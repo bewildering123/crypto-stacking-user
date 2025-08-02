@@ -68,9 +68,10 @@ const WithdrawalModal = ({ setView, createWithdraw }: Props) => {
 							</button>
 							<Button
 								disabled={code.length !== 6}
-								handleClick={() => createWithdraw(code)}
-								text="Register"
-							/>
+								onClick={() => createWithdraw(code)}
+							>
+								Register
+							</Button>
 						</div>
 					</div>
 				</div>

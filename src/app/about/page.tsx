@@ -4,7 +4,6 @@ import { useQuery } from "@apollo/client";
 import parse from "html-react-parser";
 import Image from "next/image";
 
-import leftLine from "@/app/icons/left_line.png";
 import Footer from "@/features/navigation/Footer/Footer";
 import BackHome from "@/shared/components/BackHome/BackHome";
 import Spinner from "@/shared/components/Spinner/Spinner";
@@ -38,9 +37,9 @@ export default function About() {
 						))}
 					</div>
 				)}
-				<div className={styles.linesContainer}>
+				{/* <div className={styles.linesContainer}>
 					<Image src={leftLine} alt="line" className={styles.left} />
-				</div>
+				</div> */}
 			</div>
 			<Footer />
 		</>

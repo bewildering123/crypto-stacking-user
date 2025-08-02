@@ -33,11 +33,9 @@ const ShowMoneyModal = ({ hat, aisc, setShowModal }: Props) => {
 						<div className={styles.line} />
 					</div>
 				</div>
-				<Button
-					text="Claim Reward"
-					disabled={false}
-					handleClick={() => setShowModal(false)}
-				/>
+				<Button disabled={false} onClick={() => setShowModal(false)}>
+					Claim Reward
+				</Button>
 			</div>
 		</div>
 	);

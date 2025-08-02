@@ -184,7 +184,7 @@ export default function GuessGame() {
 									Number(bet) < 10 ||
 									Number(bet) > 500
 								}
-								handleClick={() =>
+								onClick={() =>
 									handleStartGame(
 										setNeededSum,
 										bet,
@@ -198,8 +198,9 @@ export default function GuessGame() {
 										setUser,
 									)
 								}
-								text="Start"
-							/>
+							>
+								Start
+							</Button>
 						</div>
 						<div className={styles.cont}>
 							<div className={styles.textCont}>

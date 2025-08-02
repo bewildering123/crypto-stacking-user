@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import backgroundImgLight from "@/app/components/MainSection/icons/background_light.webp";
 import { client } from "@/integrations/apollo/client";
 import { useThemeType } from "@/integrations/hooks/useThemeType";
 import BackHome from "@/shared/components/BackHome/BackHome";
@@ -144,11 +143,7 @@ const ResetPassword = () => {
 				)}
 			</div>
 			<div className={styles.backgroundContainer}>
-				<Image
-					src={theme === "light" ? backgroundImgLight : backgroundImg}
-					alt="background"
-					fill
-				/>
+				<Image src={backgroundImg} alt="background" fill />
 			</div>
 		</div>
 	);

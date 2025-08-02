@@ -1,15 +1,28 @@
 import Link from "next/link";
-import { HTMLProps } from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 import Spinner from "../Spinner/Spinner";
 
 import styles from "./Button.module.scss";
 
-type Props = {
+type BaseProps = {
 	loading?: boolean;
 	color?: "primary" | "green";
-	href?: string;
+	children: ReactNode;
+	className?: string;
 };
+
+type ButtonProps = BaseProps &
+	ButtonHTMLAttributes<HTMLButtonElement> & {
+		href?: undefined;
+	};
+
+type LinkProps = BaseProps &
+	AnchorHTMLAttributes<HTMLAnchorElement> & {
+		href: string;
+	};
+
+type Props = ButtonProps | LinkProps;
 
 const Button = ({
 	children,
@@ -18,17 +31,26 @@ const Button = ({
 	color = "primary",
 	href,
 	...props
-}: Props & HTMLProps<HTMLButtonElement | HTMLLinkElement>) => {
-	return href ? (
-		<Link
-			href={href}
-			className={`${styles.button} ${color} ${className}`}
-			{...props}
+}: Props) => {
+	const classes = `${styles.button} ${color} ${className}`;
+
+	if (href) {
+		return (
+			<Link
+				href={href}
+				className={classes}
+				{...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+			>
+				{loading ? <Spinner /> : children}
+			</Link>
+		);
+	}
+
+	return (
+		<button
+			className={classes}
+			{...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
 		>
-			{loading ? <Spinner /> : children}
-		</Link>
-	) : (
-		<button className={`${styles.button} ${color} ${className}`} {...props}>
 			{loading ? <Spinner /> : children}
 		</button>
 	);

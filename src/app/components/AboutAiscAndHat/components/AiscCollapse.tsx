@@ -60,7 +60,6 @@ const items: CollapseProps["items"] = [
 	},
 	{
 		key: "4",
-		label: "Proof-of-Stake Mining",
 		label: (
 			<div className={styles.accordionTitle}>
 				<div className={styles.accordionTitleIcon}>

@@ -3,7 +3,6 @@
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
-import Buttons from "@/app/components/CalculatorSection/components/Buttons/Buttons";
 import Graph from "@/app/components/CalculatorSection/components/Graph/Graph";
 import TotalRate from "@/app/components/CalculatorSection/components/TotalRate/TotalRate";
 import { client } from "@/integrations/apollo/client";
@@ -153,15 +152,16 @@ const DepositForm = () => {
 							<Button
 								loading={loading}
 								disabled={Number(sum) < minimal_sum || Number(sum) > 5000}
-								handleClick={createDeposit}
-								text="Confirm"
-							/>
+								onClick={createDeposit}
+							>
+								Confirm
+							</Button>
 						</>
 					)}
 				</div>
 				<div className={styles.graph}>
 					<div className={styles.topContainer}>
-						<Buttons withTotalRate={false} className={styles.buttonContainer} />
+						{/* <Buttons withTotalRate={false} className={styles.buttonContainer} /> */}
 						<TotalRate className={styles.totalRate} hat={user?.hat || 0} />
 					</div>
 					<Graph

@@ -111,15 +111,16 @@ const WithdrawalForm = () => {
 					disabled={
 						Number(sum) < MIN_WITHDRAW || Number(sum) > balance || loading
 					}
-					handleClick={() => {
+					onClick={() => {
 						setLoading(true);
 						user?.confirmations_by_email
 							? sendWithdrawCode()
 							: createWithdraw();
 					}}
 					loading={loading}
-					text={"Withdraw"}
-				/>
+				>
+					Withdraw
+				</Button>
 			</div>
 		</>
 	);

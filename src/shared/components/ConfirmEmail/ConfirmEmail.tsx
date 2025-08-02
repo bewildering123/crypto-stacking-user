@@ -103,11 +103,9 @@ const ConfirmEmail = ({
 							>
 								Reset code
 							</button>
-							<Button
-								disabled={code.length !== 6}
-								handleClick={checkCodeHandle}
-								text="Register"
-							/>
+							<Button disabled={code.length !== 6} onClick={checkCodeHandle}>
+								Register
+							</Button>
 						</div>
 					</div>
 				</div>

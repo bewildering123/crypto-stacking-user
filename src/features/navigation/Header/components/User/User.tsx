@@ -142,7 +142,7 @@ const User = ({ need, setMenu }: Props) => {
 								height={20}
 								alt="user"
 							/>
-							<div lassName={`${styles.userButtonName}`}>
+							<div className={`${styles.userButtonName}`}>
 								@{data.user?.name}
 							</div>
 							<Image

@@ -39,15 +39,15 @@ const UserBalance = ({
 
 			<div className={styles.balanceList}>
 				<div className={styles.aisc}>
-					<div className={styles.balance}>{getValue(user.aics)}</div>
+					<div className={styles.balance}>{getValue(user?.aics)}</div>
 					<div className={styles.currency}>AISC</div>
 				</div>
 				<div className={styles.hat}>
-					<div className={styles.balance}>{getValue(user.hat)}</div>
+					<div className={styles.balance}>{getValue(user?.hat)}</div>
 					<div className={styles.currency}>HAT</div>
 				</div>
 				<div className={styles.usdt}>
-					<div className={styles.balance}>{getValue(user.usdt)}</div>
+					<div className={styles.balance}>{getValue(user?.usdt)}</div>
 					<div className={styles.currency}>USDT</div>
 				</div>
 			</div>

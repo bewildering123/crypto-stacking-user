@@ -71,7 +71,7 @@ const Menu = ({
 						Number(bet) > 500 ||
 						(user?.aics || 0) < Number(bet)
 					}
-					handleClick={async () => {
+					onClick={async () => {
 						const res = await client.mutate({
 							mutation: startSapperGameMutation,
 							variables: {
@@ -91,8 +91,9 @@ const Menu = ({
 							setTimeStart(time);
 						}
 					}}
-					text="Start"
-				/>
+				>
+					Start
+				</Button>
 			</div>
 			{isGameStarted && currentRow !== 9 && (
 				<>
@@ -112,7 +113,7 @@ const Menu = ({
 						</div>
 						<Button
 							disabled={!isGameStarted}
-							handleClick={() => {
+							onClick={() => {
 								setGameStatus({
 									hat: Number(hatArr[currentRow + 1]) * (Number(bet) / 10),
 									prize: Number(bet) * aiscMultiple[currentRow + 1],
@@ -120,8 +121,9 @@ const Menu = ({
 								});
 								setIsGameFinished(true);
 							}}
-							text="Get now"
-						/>
+						>
+							Get now
+						</Button>
 					</div>
 				</>
 			)}

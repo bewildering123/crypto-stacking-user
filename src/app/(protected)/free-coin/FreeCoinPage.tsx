@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import { client } from "@/integrations/apollo/client";
@@ -74,6 +74,7 @@ export default function FreeCoinPage() {
 				</p>
 			) : (
 				<Suspense fallback={<Spinner />}>
+					{/* @ts-ignore */}
 					<ReCAPTCHA
 						sitekey="6LdI49IqAAAAAASgZJsCxBlPih6aW6yazX0jknDv"
 						onChange={setCaptchaValue}
@@ -83,12 +84,13 @@ export default function FreeCoinPage() {
 			)}
 
 			<Button
-				handleClick={handleGetFreeCoin}
+				onClick={handleGetFreeCoin}
 				disabled={
 					!user?.can_get_free_coin || captchaValue === null || result.aisc !== 0
 				}
-				text="Get"
-			/>
+			>
+				Get
+			</Button>
 			{result.show && (
 				<p className={styles.text}>
 					You get {result.aisc} AISC and {result.hat} HAT

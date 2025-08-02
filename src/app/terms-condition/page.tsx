@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import leftLine from "@/app/icons/left_line.png";
 import Footer from "@/features/navigation/Footer/Footer";
 
 import styles from "./TermAndCondition.module.scss";
@@ -637,9 +636,9 @@ export default function TermAndCondition() {
 						</p>
 					</div>
 				</div>
-				<div className={styles.linesContainer}>
+				{/* <div className={styles.linesContainer}>
 					<Image src={leftLine} alt="line" className={styles.left} />
-				</div>
+				</div> */}
 			</div>
 			<Footer />
 		</>

@@ -122,11 +122,12 @@ const DepositModal = ({
 						{!disabled && (
 							<Button
 								disabled={disabled}
-								handleClick={async () => {
+								onClick={async () => {
 									await confirmDeposit();
 								}}
-								text="Confirm payment"
-							/>
+							>
+								Confirm payment
+							</Button>
 						)}
 						<p className={clsx(!disabled && styles.red)}>
 							{!disabled
