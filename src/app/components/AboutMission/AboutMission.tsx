@@ -29,7 +29,6 @@ const AboutMission = () => {
 					</div>
 					<Image
 						src="/img/pages/about/mission/1.png"
-						className={styles.advantagesImage}
 						width={140}
 						height={140}
 						alt="Real Utility, Real Results"
@@ -45,7 +44,6 @@ const AboutMission = () => {
 					</div>
 					<Image
 						src="/img/pages/about/mission/2.png"
-						className={styles.advantagesImage}
 						width={140}
 						height={140}
 						alt="Real Utility, Real Results"
