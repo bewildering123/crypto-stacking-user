@@ -1,46 +1,38 @@
 "use client";
 
-import { useQuery } from "@apollo/client";
-import parse from "html-react-parser";
 import Image from "next/image";
 
 import Footer from "@/features/navigation/Footer/Footer";
-import BackHome from "@/shared/components/BackHome/BackHome";
-import Spinner from "@/shared/components/Spinner/Spinner";
+import Button from "@/shared/components/Button/Button";
 
-import { getAbout } from "./query/getAbout";
+import AboutAdvantages from "../components/AboutAdvantages/AboutAdvantages";
+import AboutMainSection from "../components/AboutMainSection/AboutMainSections";
+import AboutMission from "../components/AboutMission/AboutMission";
+import AboutSection from "../components/AboutSection/AboutSection";
+import FAQSection from "../components/FAQSection/FAQSection";
 
 import styles from "./About.module.scss";
 
 export default function About() {
-	const { data, loading } = useQuery(getAbout);
-
 	return (
 		<>
-			<div className={styles.container}>
-				<div className={styles.blobOne} />
-				<div className={styles.blobTwo} />
-				<div className={styles.titleCont}>
-					<div className={styles.titleContainer}>
-						<BackHome />
-					</div>
-					<h1>about</h1>
-				</div>
-
-				{loading && <Spinner />}
-				{!loading && (
-					<div className={styles.content}>
-						{[...(data?.Abouts?.docs || [])].reverse().map((el, i) => (
-							<div className={styles.unparsed} key={i}>
-								{parse(el?.content || "")}
-							</div>
-						))}
-					</div>
-				)}
-				{/* <div className={styles.linesContainer}>
-					<Image src={leftLine} alt="line" className={styles.left} />
-				</div> */}
-			</div>
+			<AboutMainSection />
+			<AboutSection
+				button={
+					<Button href="/register" className={styles.btnMore}>
+						<span>Sign Up</span>
+						<Image
+							src="/img/icons/arrow-right-orange.svg"
+							width={24}
+							height={24}
+							alt="icon"
+						/>
+					</Button>
+				}
+			/>
+			<AboutMission />
+			<AboutAdvantages />
+			<FAQSection />
 			<Footer />
 		</>
 	);

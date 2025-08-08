@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 
-import Button from "@/shared/components/Button/Button";
-
 import styles from "./AboutSection.module.scss";
 
-const AboutSection = () => {
+type Props = {
+	button?: JSX.Element;
+};
+
+const AboutSection = ({ button }: Props) => {
 	return (
 		<section className={styles.container} id="about">
 			<div className={styles.blockLeft}>
@@ -36,15 +38,7 @@ const AboutSection = () => {
 					One of AISC’s standout advantages is price stability, making it a
 					trusted option for long-term investment and consistent earnings
 				</div>
-				<Button href="/faq" className={styles.btnMore}>
-					<span>Learn more</span>
-					<Image
-						src="/img/icons/arrow-long-green.svg"
-						width={24}
-						height={24}
-						alt="icon"
-					/>
-				</Button>
+				{button}
 			</div>
 		</section>
 	);
